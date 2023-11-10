@@ -1,6 +1,6 @@
 <script setup>
     import IconSideBarOverview from './icons/IconSideBarOverview.vue'
-    import IconSideBarActvities from './icons/IconSideBarActivities.vue'
+    import IconSideBarActivities from './icons/IconSideBarActivities.vue'
     import IconSideBarFitnessGoals from './icons/IconSideBarFitnessGoals.vue'
     import IconSideBarFoodItems from './icons/IconSideBarFoodItems.vue'
     import IconSideBarMetrics from './icons/IconSideBarMetrics.vue'
@@ -11,7 +11,7 @@
     import IconSideBarBottomWebsite from './icons/IconSideBarBottomWebsite.vue'
     import IconSideBarBottomTermsService from './icons/IconSideBarBottomTermsService.vue'
     
-import SideNavBarMainMenuOption from './SideNavBarMainMenuOption.vue'
+    import SideNavBarMainMenuOption from './SideNavBarMainMenuOption.vue'
     import SideNavBarBottomMenuOption from './SideNavBarBottomMenuOption.vue'
 </script>
 
@@ -51,33 +51,47 @@ import SideNavBarMainMenuOption from './SideNavBarMainMenuOption.vue'
         </div>
       </form>
       <ul class="space-y-2">
-        <SideNavBarMainMenuOption label="Progress">
-            <IconSideBarOverview />
-        </SideNavBarMainMenuOption>
+        <router-link to="/">
+          <SideNavBarMainMenuOption label="Progress">
+              <IconSideBarOverview />
+          </SideNavBarMainMenuOption>
+        </router-link>
 
-        <SideNavBarMainMenuOption label="Activities">
-            <IconSideBarActvities />
-        </SideNavBarMainMenuOption>
+        <router-link to="/actvities">
+          <SideNavBarMainMenuOption label="Actvitiess">
+              <IconSideBarActivities />
+          </SideNavBarMainMenuOption>
+        </router-link>
+        
+        <router-link to="/fitness-goals">
+          <SideNavBarMainMenuOption label="Fitness Goals">
+              <IconSideBarFitnessGoals />
+          </SideNavBarMainMenuOption>
+        </router-link>
+        
+        <router-link to="/food-items">
+          <SideNavBarMainMenuOption label="Food Items">
+              <IconSideBarFoodItems />
+          </SideNavBarMainMenuOption>
+        </router-link>
 
-        <SideNavBarMainMenuOption label="Fitness Goals">
-            <IconSideBarFitnessGoals />
-        </SideNavBarMainMenuOption>
+        <router-link to="/meal-logs">
+          <SideNavBarMainMenuOption label="Meal Logs">
+              <IconSideBarMealLogs />
+          </SideNavBarMainMenuOption>
+        </router-link>
 
-        <SideNavBarMainMenuOption label="Food Items">
-            <IconSideBarFoodItems />
-        </SideNavBarMainMenuOption>
+        <router-link to="/metrics">
+          <SideNavBarMainMenuOption label="Metrics">
+              <IconSideBarMetrics />
+          </SideNavBarMainMenuOption>
+        </router-link>
 
-        <SideNavBarMainMenuOption label="Meal Logs">
-            <IconSideBarMealLogs />
-        </SideNavBarMainMenuOption>
-
-        <SideNavBarMainMenuOption label="Metrics">
-            <IconSideBarMetrics />
-        </SideNavBarMainMenuOption>
-
-        <SideNavBarMainMenuOption label="Workout Plans">
-            <IconSideBarWorkoutPlans />
-        </SideNavBarMainMenuOption>
+        <router-link to="/workout-plans">
+          <SideNavBarMainMenuOption label="Workout Plans">
+              <IconSideBarWorkoutPlans />
+          </SideNavBarMainMenuOption>
+        </router-link>
       </ul>
     </div>
 
