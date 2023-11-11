@@ -1,21 +1,21 @@
 <script setup>
-    import IconSideBarOverview from './icons/IconSideBarOverview.vue'
-    import IconSideBarActivities from './icons/IconSideBarActivities.vue'
-    import IconSideBarFitnessGoals from './icons/IconSideBarFitnessGoals.vue'
-    import IconSideBarFoodItems from './icons/IconSideBarFoodItems.vue'
-    import IconSideBarMetrics from './icons/IconSideBarMetrics.vue'
-    import IconSideBarWorkoutPlans from './icons/IconSideBarWorkoutPlans.vue'
-    import IconSideBarMealLogs from './icons/IconSideBarMealLogs.vue'
-    import IconSideBarBottomDXPortal from './icons/IconSideBarBottomDXPortal.vue'
-    import IconSideBarBottomGetSupport from './icons/IconSideBarBottomGetSupport.vue'
-    import IconSideBarBottomWebsite from './icons/IconSideBarBottomWebsite.vue'
-    import IconSideBarBottomTermsService from './icons/IconSideBarBottomTermsService.vue'
-    
-    import SideNavBarMainMenuOption from './SideNavBarMainMenuOption.vue'
-    import SideNavBarBottomMenuOption from './SideNavBarBottomMenuOption.vue'
+import IconSideBarOverview from './icons/IconSideBarOverview.vue'
+import IconSideBarActivities from './icons/IconSideBarActivities.vue'
+import IconSideBarFitnessGoals from './icons/IconSideBarFitnessGoals.vue'
+import IconSideBarFoodItems from './icons/IconSideBarFoodItems.vue'
+import IconSideBarMetrics from './icons/IconSideBarMetrics.vue'
+import IconSideBarWorkoutPlans from './icons/IconSideBarWorkoutPlans.vue'
+import IconSideBarMealLogs from './icons/IconSideBarMealLogs.vue'
+import IconSideBarBottomDXPortal from './icons/IconSideBarBottomDXPortal.vue'
+import IconSideBarBottomGetSupport from './icons/IconSideBarBottomGetSupport.vue'
+import IconSideBarBottomWebsite from './icons/IconSideBarBottomWebsite.vue'
+import IconSideBarBottomTermsService from './icons/IconSideBarBottomTermsService.vue'
+
+import SideNavBarMainMenuOption from './SideNavBarMainMenuOption.vue'
+import SideNavBarBottomMenuOption from './SideNavBarBottomMenuOption.vue'
 </script>
 
-<template>      
+<template>
   <aside
     class="fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
     aria-label="Sidenav"
@@ -25,9 +25,7 @@
       <form action="#" method="GET" class="md:hidden mb-2">
         <label for="sidebar-search" class="sr-only">Search</label>
         <div class="relative">
-          <div
-            class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
-          >
+          <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
             <svg
               class="w-5 h-5 text-gray-500 dark:text-gray-400"
               fill="currentColor"
@@ -53,43 +51,43 @@
       <ul class="space-y-2">
         <router-link to="/">
           <SideNavBarMainMenuOption label="Progress">
-              <IconSideBarOverview />
+            <IconSideBarOverview />
           </SideNavBarMainMenuOption>
         </router-link>
 
-        <router-link to="/actvities">
-          <SideNavBarMainMenuOption label="Actvitiess">
-              <IconSideBarActivities />
+        <router-link to="/activities">
+          <SideNavBarMainMenuOption label="Activities">
+            <IconSideBarActivities />
           </SideNavBarMainMenuOption>
         </router-link>
-        
+
         <router-link to="/fitness-goals">
           <SideNavBarMainMenuOption label="Fitness Goals">
-              <IconSideBarFitnessGoals />
+            <IconSideBarFitnessGoals />
           </SideNavBarMainMenuOption>
         </router-link>
-        
+
         <router-link to="/food-items">
           <SideNavBarMainMenuOption label="Food Items">
-              <IconSideBarFoodItems />
+            <IconSideBarFoodItems />
           </SideNavBarMainMenuOption>
         </router-link>
 
         <router-link to="/meal-logs">
           <SideNavBarMainMenuOption label="Meal Logs">
-              <IconSideBarMealLogs />
+            <IconSideBarMealLogs />
           </SideNavBarMainMenuOption>
         </router-link>
 
         <router-link to="/metrics">
           <SideNavBarMainMenuOption label="Metrics">
-              <IconSideBarMetrics />
+            <IconSideBarMetrics />
           </SideNavBarMainMenuOption>
         </router-link>
 
         <router-link to="/workout-plans">
           <SideNavBarMainMenuOption label="Workout Plans">
-              <IconSideBarWorkoutPlans />
+            <IconSideBarWorkoutPlans />
           </SideNavBarMainMenuOption>
         </router-link>
       </ul>
@@ -98,22 +96,37 @@
     <div
       class="hidden absolute bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex bg-white dark:bg-gray-800 z-20"
     >
-      <SideNavBarBottomMenuOption name="website" label="Product Website" link="https://www.nubadoo.com">
+      <SideNavBarBottomMenuOption
+        name="website"
+        label="Product Website"
+        link="https://www.nubadoo.com"
+      >
         <IconSideBarBottomWebsite />
       </SideNavBarBottomMenuOption>
 
-      <SideNavBarBottomMenuOption name="dx-portal" label="DX Portal" link="https://developer.nubadoo.com">
+      <SideNavBarBottomMenuOption
+        name="dx-portal"
+        label="DX Portal"
+        link="https://developer.nubadoo.com"
+      >
         <IconSideBarBottomDXPortal />
       </SideNavBarBottomMenuOption>
 
-      <SideNavBarBottomMenuOption name="terms-service" label="Terms of Service"  link="https://www.nubadoo.com/terms">
+      <SideNavBarBottomMenuOption
+        name="terms-service"
+        label="Terms of Service"
+        link="https://www.nubadoo.com/terms"
+      >
         <IconSideBarBottomTermsService />
       </SideNavBarBottomMenuOption>
 
-      <SideNavBarBottomMenuOption name="get-support" label="Get Support" link="https://www.nubadoo.com/contact">
+      <SideNavBarBottomMenuOption
+        name="get-support"
+        label="Get Support"
+        link="https://www.nubadoo.com/contact"
+      >
         <IconSideBarBottomGetSupport />
       </SideNavBarBottomMenuOption>
-     
     </div>
   </aside>
 </template>

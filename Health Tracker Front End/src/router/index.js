@@ -12,14 +12,14 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/actvities',
-      name: 'Actvities',
+      path: '/activities',
+      name: 'Activities',
       component: ActivitiesView
     },
     {
       path: '/:catchAll(.*)*',
-      name: "PageNotFound",
-      component: PageNotFoundView,
+      name: 'PageNotFound',
+      component: PageNotFoundView
     }
   ]
 })

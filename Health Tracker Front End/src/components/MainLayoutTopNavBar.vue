@@ -38,23 +38,17 @@
           </svg>
           <span class="sr-only">Toggle sidebar</span>
         </button>
-        <a
-          href="https://flowbite.com"
-          class="flex items-center justify-between mr-4"
-        >
+        <a href="https://flowbite.com" class="flex items-center justify-between mr-4">
           <img src="logo.svg" class="mr-3 h-8" alt="NuBaDoo Logo" />
-        
-          <span
-            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
             >NuBaDoo Health Tracker App</span
           >
         </a>
         <form action="#" method="GET" class="hidden md:block md:pl-2">
           <label for="topbar-search" class="sr-only">Search</label>
           <div class="relative md:w-64 md:w-96">
-            <div
-              class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
-            >
+            <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
               <svg
                 class="w-5 h-5 text-gray-500 dark:text-gray-400"
                 fill="currentColor"
@@ -161,17 +155,12 @@
                 </div>
               </div>
               <div class="pl-3 w-full">
-                <div
-                  class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400"
-                >
+                <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
                   New message from
-                  <span class="font-semibold text-gray-900 dark:text-white"
-                    >Bonnie Green</span
-                  >: "Hey, what's up? All set for the presentation?"
+                  <span class="font-semibold text-gray-900 dark:text-white">Bonnie Green</span>:
+                  "Hey, what's up? All set for the presentation?"
                 </div>
-                <div
-                  class="text-xs font-medium text-primary-600 dark:text-primary-500"
-                >
+                <div class="text-xs font-medium text-primary-600 dark:text-primary-500">
                   a few moments ago
                 </div>
               </div>
@@ -203,21 +192,13 @@
                 </div>
               </div>
               <div class="pl-3 w-full">
-                <div
-                  class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400"
-                >
-                  <span class="font-semibold text-gray-900 dark:text-white"
-                    >Jese leos</span
-                  >
+                <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
+                  <span class="font-semibold text-gray-900 dark:text-white">Jese leos</span>
                   and
-                  <span class="font-medium text-gray-900 dark:text-white"
-                    >5 others</span
-                  >
+                  <span class="font-medium text-gray-900 dark:text-white">5 others</span>
                   started following you.
                 </div>
-                <div
-                  class="text-xs font-medium text-primary-600 dark:text-primary-500"
-                >
+                <div class="text-xs font-medium text-primary-600 dark:text-primary-500">
                   10 minutes ago
                 </div>
               </div>
@@ -251,21 +232,13 @@
                 </div>
               </div>
               <div class="pl-3 w-full">
-                <div
-                  class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400"
-                >
-                  <span class="font-semibold text-gray-900 dark:text-white"
-                    >Joseph Mcfall</span
-                  >
+                <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
+                  <span class="font-semibold text-gray-900 dark:text-white">Joseph Mcfall</span>
                   and
-                  <span class="font-medium text-gray-900 dark:text-white"
-                    >141 others</span
-                  >
+                  <span class="font-medium text-gray-900 dark:text-white">141 others</span>
                   love your story. See it and view more stories.
                 </div>
-                <div
-                  class="text-xs font-medium text-primary-600 dark:text-primary-500"
-                >
+                <div class="text-xs font-medium text-primary-600 dark:text-primary-500">
                   44 minutes ago
                 </div>
               </div>
@@ -299,30 +272,20 @@
                 </div>
               </div>
               <div class="pl-3 w-full">
-                <div
-                  class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400"
-                >
-                  <span class="font-semibold text-gray-900 dark:text-white"
-                    >Leslie Livingston</span
-                  >
+                <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
+                  <span class="font-semibold text-gray-900 dark:text-white">Leslie Livingston</span>
                   mentioned you in a comment:
-                  <span
-                    class="font-medium text-primary-600 dark:text-primary-500"
+                  <span class="font-medium text-primary-600 dark:text-primary-500"
                     >@bonnie.green</span
                   >
                   what do you say?
                 </div>
-                <div
-                  class="text-xs font-medium text-primary-600 dark:text-primary-500"
-                >
+                <div class="text-xs font-medium text-primary-600 dark:text-primary-500">
                   1 hour ago
                 </div>
               </div>
             </a>
-            <a
-              href="#"
-              class="flex py-3 px-4 hover:bg-gray-100 dark:hover:bg-gray-600"
-            >
+            <a href="#" class="flex py-3 px-4 hover:bg-gray-100 dark:hover:bg-gray-600">
               <div class="flex-shrink-0">
                 <img
                   class="w-11 h-11 rounded-full"
@@ -346,18 +309,11 @@
                 </div>
               </div>
               <div class="pl-3 w-full">
-                <div
-                  class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400"
-                >
-                  <span class="font-semibold text-gray-900 dark:text-white"
-                    >Robert Brown</span
-                  >
-                  posted a new video: Glassmorphism - learn how to implement
-                  the new design trend.
+                <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
+                  <span class="font-semibold text-gray-900 dark:text-white">Robert Brown</span>
+                  posted a new video: Glassmorphism - learn how to implement the new design trend.
                 </div>
-                <div
-                  class="text-xs font-medium text-primary-600 dark:text-primary-500"
-                >
+                <div class="text-xs font-medium text-primary-600 dark:text-primary-500">
                   3 hours ago
                 </div>
               </div>
@@ -488,9 +444,7 @@
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              <div class="text-sm text-gray-900 dark:text-white">
-                Profile
-              </div>
+              <div class="text-sm text-gray-900 dark:text-white">Profile</div>
             </a>
             <a
               href="#"
@@ -509,9 +463,7 @@
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              <div class="text-sm text-gray-900 dark:text-white">
-                Settings
-              </div>
+              <div class="text-sm text-gray-900 dark:text-white">Settings</div>
             </a>
             <a
               href="#"
@@ -531,9 +483,7 @@
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              <div class="text-sm text-gray-900 dark:text-white">
-                Products
-              </div>
+              <div class="text-sm text-gray-900 dark:text-white">Products</div>
             </a>
             <a
               href="#"
@@ -555,9 +505,7 @@
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              <div class="text-sm text-gray-900 dark:text-white">
-                Pricing
-              </div>
+              <div class="text-sm text-gray-900 dark:text-white">Pricing</div>
             </a>
             <a
               href="#"
@@ -576,9 +524,7 @@
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              <div class="text-sm text-gray-900 dark:text-white">
-                Billing
-              </div>
+              <div class="text-sm text-gray-900 dark:text-white">Billing</div>
             </a>
             <a
               href="#"
@@ -599,9 +545,7 @@
                   d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                 ></path>
               </svg>
-              <div class="text-sm text-gray-900 dark:text-white">
-                Logout
-              </div>
+              <div class="text-sm text-gray-900 dark:text-white">Logout</div>
             </a>
           </div>
         </div>
@@ -625,19 +569,12 @@
           id="dropdown"
         >
           <div class="py-3 px-4">
-            <span
-              class="block text-sm font-semibold text-gray-900 dark:text-white"
-              >Neil Sims</span
-            >
-            <span
-              class="block text-sm text-gray-900 truncate dark:text-white"
+            <span class="block text-sm font-semibold text-gray-900 dark:text-white">Neil Sims</span>
+            <span class="block text-sm text-gray-900 truncate dark:text-white"
               >name@flowbite.com</span
             >
           </div>
-          <ul
-            class="py-1 text-gray-700 dark:text-gray-300"
-            aria-labelledby="dropdown"
-          >
+          <ul class="py-1 text-gray-700 dark:text-gray-300" aria-labelledby="dropdown">
             <li>
               <a
                 href="#"
@@ -653,10 +590,7 @@
               >
             </li>
           </ul>
-          <ul
-            class="py-1 text-gray-700 dark:text-gray-300"
-            aria-labelledby="dropdown"
-          >
+          <ul class="py-1 text-gray-700 dark:text-gray-300" aria-labelledby="dropdown">
             <li>
               <a
                 href="#"
@@ -730,10 +664,7 @@
               </a>
             </li>
           </ul>
-          <ul
-            class="py-1 text-gray-700 dark:text-gray-300"
-            aria-labelledby="dropdown"
-          >
+          <ul class="py-1 text-gray-700 dark:text-gray-300" aria-labelledby="dropdown">
             <li>
               <a
                 href="#"

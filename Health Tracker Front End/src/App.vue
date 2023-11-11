@@ -13,10 +13,4 @@ import MainLayoutBreadcrumbs from './components/MainLayoutBreadcrumbs.vue'
       <RouterView />
     </main>
   </div>
-
-
-
-
-
-
 </template>
