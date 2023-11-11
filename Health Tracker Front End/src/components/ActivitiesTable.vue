@@ -1,5 +1,6 @@
 <script setup>
-import { prettyDate, sportyEmoji } from './helpers'
+import { prettyDate, sportyEmoji, intensityPercentage } from './helpers'
+import Gauge from "./Gauge.vue"
 
 defineProps({
     items: {
@@ -14,12 +15,9 @@ defineProps({
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
-                        Activity ID
+                        Activity Date
                     </th>
-                    <th scope="col" class="px-6 py-3">
-                        User ID
-                    </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3" colspan="2">
                         Actvity Type
                     </th>
                     <th scope="col" class="px-6 py-3">
@@ -28,36 +26,33 @@ defineProps({
                     <th scope="col" class="px-6 py-3">
                         Duration
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3" colspan="2">
                         Workout Intensity
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Activity Date
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr  v-for="item in items" :key="item.activityId" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ item.activityId }}
-                    </th>
-                    <td class="px-6 py-4">
-                        {{ item.userId }}
-                    </td>
-                    <td class="px-6 py-4">
-                        <h2 class="text-4xl font-bold dark:text-white">{{ sportyEmoji(item.activityType) }}</h2>{{item.activityType}}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ item.distanceKm }} km
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ item.durationMinutes }} min
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ item.workoutIntensity }}
-                    </td>
                     <td class="px-6 py-4">
                         {{ prettyDate(item.activityDate) }}
+                    </td>
+                    <td class="px-6 py-4">
+                        <h2 class="text-4xl font-bold dark:text-white">{{ sportyEmoji(item.activityType) }}</h2>
+                    </td>
+                    <td class="px-6 py-4">
+                        {{item.activityType}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ item.distanceKm }} {{((item.distanceKm !=null) ? 'km' : '')}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ item.durationMinutes }} {{((item.durationMinutes !=null) ? 'min' : '')}}
+                    </td>
+                    <td class="px-6 py-4">
+                        <Gauge :percentage = intensityPercentage(item.workoutIntensity) />
+                    </td>
+                    <td class="px-6 py-4">
+                       {{ item.workoutIntensity }}
                     </td>
                     <td class="px-6 py-4">
                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
