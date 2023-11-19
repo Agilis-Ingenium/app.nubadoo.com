@@ -43,7 +43,7 @@ defineProps({
             <tbody>
                 <tr v-for="item in items" :key="item.foodItemId" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <td class="p-4">
-                        <img :src="foodImage(item.name)" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                        <img :src="foodImage(item.name)" class="w-16 md:w-32 max-w-full max-h-full" :alt="item.name">
                     </td>
                     <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                         {{ item.name }}

@@ -3,7 +3,7 @@ import PageHeader from "../components/PageHeader.vue"
 import FoodItemsTable from "../components/FoodItemsTable.vue"
 
 const page = {
-  title: "The Community Kitchen: Food Items",
+  title: "The Community Pantry",
   description: "Explore a diverse range of food items shared by the community. Discover an assortment of ingredients and culinary inspirations contributed by members. Engage with a collection of flavors, cuisines, and nutritional options that reflect the rich diversity of our community's food choices."
 }
 
