@@ -13,8 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Deploying application to Amazon S3
-        uses: lewandy/vue-s3-deployer@main
+      - name: Github action for deploy Vue app to Amazon s3 bucket 🗑
+        uses: lewandy/vue-s3-deployer@v1.0.2   
         with:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
