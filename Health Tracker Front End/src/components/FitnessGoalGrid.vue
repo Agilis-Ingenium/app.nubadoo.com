@@ -1,5 +1,4 @@
 <script setup>
-//import { prettyDate, sportyEmoji, intensityPercentage } from './helpers'
 import FitnessGoalCard from "./FitnessGoalCard.vue"
 
 defineProps({

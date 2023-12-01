@@ -13,6 +13,7 @@ import IconSideBarBottomTermsService from './icons/IconSideBarBottomTermsService
 
 import SideNavBarMainMenuOption from './SideNavBarMainMenuOption.vue'
 import SideNavBarBottomMenuOption from './SideNavBarBottomMenuOption.vue'
+import SideNavBarSubMenuMetrics from './SideNavBarSubMenuMetrics.vue'
 </script>
 
 <template>
@@ -80,10 +81,11 @@ import SideNavBarBottomMenuOption from './SideNavBarBottomMenuOption.vue'
         </router-link>
 
         <router-link to="/metrics">
-          <SideNavBarMainMenuOption label="Metrics">
+          <SideNavBarMainMenuOption label="Capture Metrics"  dropdown="true" aria-controls="dropdown-pages" data-collapse-toggle="dropdown-pages">
             <IconSideBarMetrics />
-          </SideNavBarMainMenuOption>
-        </router-link>
+          </SideNavBarMainMenuOption>  
+        </router-link>          
+        <SideNavBarSubMenuMetrics />
 
         <router-link to="/workout-plans">
           <SideNavBarMainMenuOption label="Workout Plans">
