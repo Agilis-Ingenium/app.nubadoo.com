@@ -2,7 +2,7 @@
 import FoodItemsTable from "../components/FoodItemsTable.vue"
 import PageHeader from "../components/PageHeader.vue"
 import AlertError from "../components/AlertError.vue"
-import LoadingSpinner from "../components/LoadingSpinner.vue"
+import WidgetLoadingSpinner from "../components/WidgetLoadingSpinner.vue"
 </script>
 
 <script>
@@ -38,7 +38,7 @@ export default {
   <PageHeader :page = page />
 
     <div v-if="loading">
-      <LoadingSpinner />
+      <WidgetLoadingSpinner />
     </div>
     <div v-else-if="error">
       <AlertError :errorMessage = error />

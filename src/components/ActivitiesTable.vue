@@ -1,14 +1,12 @@
 <script setup>
 import { prettyDate, sportyEmoji, intensityPercentage } from './helpers'
-import Gauge from "./Gauge.vue"
+import WidgetGauge from "./WidgetGauge.vue"
 import axios from 'axios';
 import AlertError from "./AlertError.vue"
+import AlertMessage from "./AlertMessage.vue"
 
-defineProps({
-    items: {
-        type: Array,
-        required: true
-    }
+const items = defineProps({
+  items: Array
 })
 
 function DeleteActivity(id, index, items) {
@@ -18,6 +16,7 @@ function DeleteActivity(id, index, items) {
             axios.delete('/v1/activities/'+id)
             .then(resp => {
                 items.splice(index, 1);
+                this.items = items
             })
             .catch(error => {
                 console.log(error);
@@ -27,10 +26,13 @@ function DeleteActivity(id, index, items) {
 }
 </script>
 <template>
-    <div v-if="error">
-      <AlertError :errorMessage = error />
+    <div v-if="this.error">
+      <AlertError :errorMessage = this.error />
     </div>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div v-else-if="this.items.length == 0">
+      <AlertMessage alertMessage = 'No activities found' />
+    </div>
+    <div v-else class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -52,9 +54,9 @@ function DeleteActivity(id, index, items) {
                 </tr>
             </thead>
             <tbody>
-                <tr  v-for="item in items" :key="item.activityId" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                <tr  v-for="item in this.items" :key="item.activityId" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                     <td class="px-6 py-4">
-                        {{ prettyDate(item.activityDate) }}
+                       {{prettyDate(item.activityDate)}}
                     </td>
                     <td class="px-6 py-4">
                         <h2 class="text-4xl font-bold dark:text-white">{{ sportyEmoji(item.activityType) }}</h2>
@@ -69,7 +71,7 @@ function DeleteActivity(id, index, items) {
                         {{ item.durationMinutes }} {{((item.durationMinutes !=null) ? 'min' : '')}}
                     </td>
                     <td class="px-6 py-4">
-                        <Gauge :percentage = intensityPercentage(item.workoutIntensity) />
+                        <WidgetGauge :percentage = intensityPercentage(item.workoutIntensity) />
                     </td>
                     <td class="px-6 py-4">
                        {{ item.workoutIntensity }}
