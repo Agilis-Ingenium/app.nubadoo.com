@@ -1,13 +1,40 @@
 <script setup>
-import PageHeader from "../components/PageHeader.vue"
 import WorkoutPlansTable from "../components/WorkoutPlansTable.vue"
+import PageHeader from "../components/PageHeader.vue"
+import AlertError from "../components/AlertError.vue"
+import LoadingSpinner from "../components/LoadingSpinner.vue"
+</script>
 
-const page = {
-  title: "Your Workout Plans",
-  description: "Access and manage your personalized workout plans designed to meet your fitness goals efficiently. This page offers a tailored experience, allowing you to view, create, and organize workout routines that suit your preferences and fitness aspirations. Stay motivated and track your progress with 'Your Workout Plans'."
-}
+<script>
+import axios from 'axios';
 
-// use static data to develop the table component
+export default {
+  data() {
+    return {
+      page : {
+        title: "Your Workout Plans",
+        description: "Access and manage your personalized workout plans designed to meet your fitness goals efficiently. This page offers a tailored experience, allowing you to view, create, and organize workout routines that suit your preferences and fitness aspirations. Stay motivated and track your progress with 'Your Workout Plans'."
+    },
+      items: [],
+      loading: true,
+      error: ''
+    };
+  },
+  mounted() {
+    axios.get('/v1/workout-plans')
+      .then(response => {
+         this.items2 = response.data;
+         this.loading = false;
+      })
+      .catch(error => {
+        this.error = error.message;
+        this.loading = false;
+      });
+  }
+};
+
+
+/* use static data to develop the table component */
 const items = [
     {
         "planId": 1,
@@ -49,26 +76,19 @@ const items = [
         "duration": "1 Month",
         "description": "Intense strength training regimen to stimulate muscle growth and strength."
     }
-]
+] 
 </script>
 
 <template>
-    <PageHeader :page = page />
-    <WorkoutPlansTable :items = items />
+  <PageHeader :page = page />
+
+    <div v-if="loading">
+      <LoadingSpinner />
+    </div>
+    <div v-else-if="error">
+      <AlertError :errorMessage = error />
+    </div>
+    <div v-else>
+      <WorkoutPlansTable :items = items />
+    </div>
 </template>
-
-
-
-
-Workout Plan 2
-Goal: Muscle Gain
-Duration: 8 weeks
-Description: High-intensity workouts targeting different muscle groups, including resistance training and increased protein intake.
-Workout Plan 3
-Goal: Endurance Building
-Duration: 6 weeks
-Description: Emphasizes aerobic exercises, interval training, and gradual endurance enhancement techniques.
-Workout Plan 4
-Goal: Flexibility Improvement
-Duration: 3 weeks
-Description: Yoga-based routine combining stretches, poses, and breathing exercises to improve flexibility and reduce stiffness.

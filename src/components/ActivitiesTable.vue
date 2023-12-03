@@ -1,6 +1,8 @@
 <script setup>
 import { prettyDate, sportyEmoji, intensityPercentage } from './helpers'
 import Gauge from "./Gauge.vue"
+import axios from 'axios';
+import AlertError from "./AlertError.vue"
 
 defineProps({
     items: {
@@ -8,8 +10,26 @@ defineProps({
         required: true
     }
 })
+
+function DeleteActivity(id, index, items) {
+
+   if(confirm("Do you really want to delete?")){
+
+            axios.delete('/v1/activities/'+id)
+            .then(resp => {
+                items.splice(index, 1);
+            })
+            .catch(error => {
+                console.log(error);
+                this.error = error;
+            })
+   }
+}
 </script>
 <template>
+    <div v-if="error">
+      <AlertError :errorMessage = error />
+    </div>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -56,6 +76,9 @@ defineProps({
                     </td>
                     <td class="px-6 py-4">
                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                    <td class="px-6 py-4">
+                        <a class="font-medium text-red-600 dark:text-red-500 hover:underline" href="javascript:;" v-on:click="DeleteActivity(item.activityId, index, this.items)">Delete</a>
                     </td>
                 </tr>
             </tbody>

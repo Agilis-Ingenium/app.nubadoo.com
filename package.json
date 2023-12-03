@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "apexcharts": "^3.44.0",
-    "axios": "^1.6.1",
+    "axios": "^1.6.2",
     "flowbite": "^2.0.0",
     "flowbite-vue": "^0.1.0",
     "moment": "^2.29.4",

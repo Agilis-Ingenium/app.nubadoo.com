@@ -3,7 +3,7 @@ import FitnessGoalCard from "./FitnessGoalCard.vue"
 
 defineProps({
     items: {
-        type: Array,
+        type: Object,
         required: true
     }
 })

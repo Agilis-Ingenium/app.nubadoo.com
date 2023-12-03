@@ -6,7 +6,7 @@ const encourgement = randomEncourgement()
 
 defineProps({
     item: {
-        type: Array,
+        type: Object,
         required: true
     }
 })
