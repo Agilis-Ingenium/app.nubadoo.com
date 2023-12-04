@@ -23,7 +23,7 @@ export default {
   mounted() {
     axios.get('/v1/fitness-goals')
       .then(response => {
-         this.items2 = response.data;
+        this.items = response.data;
          this.loading = false;
       })
       .catch(error => {
@@ -32,58 +32,6 @@ export default {
       });
   }
 };
-
-// use static data to develop the table component
-const items = [
-    {
-        "goalId": 1,
-        "userId": 1,
-        "goalType": "weight_loss",
-        "targetValue": 10.0,
-        "targetDate": "2023-12-28T00:00:00.000Z",
-        "achieved": false
-    },
-    {
-        "goalId": 2,
-        "userId": 1,
-        "goalType": "muscle_gain",
-        "targetValue": 5.0,
-        "targetDate": "2023-11-30T00:00:00.000Z",
-        "achieved": false
-    },
-    {
-        "goalId": 3,
-        "userId": 1,
-        "goalType": "fitness",
-        "targetValue": 10.0,
-        "targetDate": "2023-12-31T00:00:00.000Z",
-        "achieved": false
-    },
-    {
-        "goalId": 4,
-        "userId": 1,
-        "goalType": "nutrition",
-        "targetValue": 5.0,
-        "targetDate": "2023-11-30T00:00:00.000Z",
-        "achieved": false
-    },
-    {
-        "goalId": 4,
-        "userId": 1,
-        "goalType": "health",
-        "targetValue": 5.0,
-        "targetDate": "2023-11-30T00:00:00.000Z",
-        "achieved": false
-    },
-    {
-        "goalId": 4,
-        "userId": 1,
-        "goalType": "other",
-        "targetValue": 5.0,
-        "targetDate": "2023-11-30T00:00:00.000Z",
-        "achieved": true
-    }
-]
 </script>
 
 <template>

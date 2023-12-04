@@ -4,14 +4,15 @@ import WidgetGauge from "./WidgetGauge.vue"
 import axios from 'axios';
 import AlertError from "./AlertError.vue"
 import AlertMessage from "./AlertMessage.vue"
+import WidegtDeleteButton from './WidgetDeleteButton.vue';
 
 const items = defineProps({
-  items: Array
+  items: Object
 })
 
 function DeleteActivity(id, index, items) {
 
-   if(confirm("Do you really want to delete?")){
+   if(confirm("Are you sure that you really want to delete the activity entry?")){
 
             axios.delete('/v1/activities/'+id)
             .then(resp => {
@@ -54,7 +55,7 @@ function DeleteActivity(id, index, items) {
                 </tr>
             </thead>
             <tbody>
-                <tr  v-for="item in this.items" :key="item.activityId" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                <tr v-for="(item, index) in this.items" :key="item.activityId" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                     <td class="px-6 py-4">
                        {{prettyDate(item.activityDate)}}
                     </td>
@@ -80,7 +81,9 @@ function DeleteActivity(id, index, items) {
                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                     </td>
                     <td class="px-6 py-4">
-                        <a class="font-medium text-red-600 dark:text-red-500 hover:underline" href="javascript:;" v-on:click="DeleteActivity(item.activityId, index, this.items)">Delete</a>
+                        <a  href="javascript:;" v-on:click="DeleteActivity(item.activityId, index, this.items)">
+                            <WidegtDeleteButton />
+                        </a>
                     </td>
                 </tr>
             </tbody>
