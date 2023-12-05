@@ -2,6 +2,8 @@
 import { foodImage } from "./helpers/food-items-helpers"
 import WidgetDeleteButton from "./WidgetDeleteButton.vue"
 import axios from 'axios'
+import AlertError from "../components/AlertError.vue"
+import WidgetLoadingSpinner from "../components/WidgetLoadingSpinner.vue"
 
 defineProps({
     items: {
