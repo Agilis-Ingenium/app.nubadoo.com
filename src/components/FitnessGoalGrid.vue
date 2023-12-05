@@ -11,7 +11,7 @@ defineProps({
     }
 })
 
-function DeleteActivity(id, index, items) {
+function Delete(id, index, items) {
 
    if(confirm("Are you sure that you really want to delete this fitness goal?")){
 
@@ -45,7 +45,7 @@ function DeleteActivity(id, index, items) {
             <span v-if="item.achieved" class="text-2xl dark:text-white content-center px-8 text-center"><br />Well Done!</span>
             <div class="flex mt-4 md:mt-6" v-if="!item.achieved">
                 <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">&nbsp;&nbsp;Edit&nbsp;&nbsp;</a>
-                <a class="ms-3" href="javascript:;" v-on:click="DeleteActivity(item.goalId, index, this.items)">
+                <a class="ms-3" href="javascript:;" v-on:click="Delete(item.goalId, index, this.items)">
                     <WidgetDeleteButton />
                 </a>
             </div>
