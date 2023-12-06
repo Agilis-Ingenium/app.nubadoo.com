@@ -1,39 +1,41 @@
 <script setup>
-import { computed } from 'vue';
+import { computed } from "vue";
 
 const props = defineProps({
   percentage: {
     type: Number,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
 var randomColour = computed(() => {
-    let maxVal = 0xFFFFFF; // 16777215
-    let randomNumber = Math.random() * maxVal; 
-    randomNumber = Math.floor(randomNumber);
-    randomNumber = randomNumber.toString(16);
-    let randColor = randomNumber.padStart(6, 0);   
-    return `#${randColor.toUpperCase()}`
-})
+  let maxVal = 0xffffff; // 16777215
+  let randomNumber = Math.random() * maxVal;
+  randomNumber = Math.floor(randomNumber);
+  randomNumber = randomNumber.toString(16);
+  let randColor = randomNumber.padStart(6, 0);
+  return `#${randColor.toUpperCase()}`;
+});
 
 const cssTransformRotateValue = computed(() => {
-  const percentageAsFraction = props.percentage / 100
-  const halfPercentage = percentageAsFraction / 2
+  const percentageAsFraction = props.percentage / 100;
+  const halfPercentage = percentageAsFraction / 2;
 
-  return `${halfPercentage}turn`
-})
-
+  return `${halfPercentage}turn`;
+});
 </script>
 
 <template>
   <div class="gauge__outer">
     <div class="gauge__inner">
-      <div class="gauge__fill" :style="{ transform: `rotate(${cssTransformRotateValue})`
-    , background: `${randomColour}` }"></div>
-      <div class="gauge__cover">
-        {{ percentage.toFixed(0) }}%
-      </div>
+      <div
+        class="gauge__fill"
+        :style="{
+          transform: `rotate(${cssTransformRotateValue})`,
+          background: `${randomColour}`,
+        }"
+      ></div>
+      <div class="gauge__cover">{{ percentage.toFixed(0) }}%</div>
     </div>
   </div>
 </template>
@@ -83,7 +85,7 @@ const cssTransformRotateValue = computed(() => {
   justify-content: center;
   padding-bottom: 25%;
   box-sizing: border-box;
-  font-family: 'Lexend', sans-serif;
+  font-family: "Lexend", sans-serif;
   font-weight: bold;
   font-size: 12px;
 }

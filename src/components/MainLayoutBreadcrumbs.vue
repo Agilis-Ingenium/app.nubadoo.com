@@ -5,7 +5,9 @@
       class="flex px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
       aria-label="Breadcrumb"
     >
-      <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+      <ol
+        class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse"
+      >
         <li class="inline-flex items-center">
           <a
             href="#"
@@ -66,7 +68,8 @@
                 d="m1 9 4-4-4-4"
               />
             </svg>
-            <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400"
+            <span
+              class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400"
               >Flowbite</span
             >
           </div>

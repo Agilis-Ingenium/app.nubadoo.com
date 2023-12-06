@@ -1,8 +1,7 @@
 export function foodImage(slug) {
+  slug = slug.replace(/ /g, "-").toLowerCase();
 
-  slug = slug.replace(/ /g, '-').toLowerCase();
+  var imageString = "./images/food-items/" + slug + ".jpg";
 
-    var imageString = "./images/food-items/" + slug + ".jpg"
-
-    return imageString
+  return imageString;
 }

@@ -1,7 +1,7 @@
 <script setup>
-import MainLayoutTopNavBar from './components/MainLayoutTopNavBar.vue'
-import MainLayoutSideNavBar from './components/MainLayoutSideNavBar.vue'
-import MainLayoutBreadcrumbs from './components/MainLayoutBreadcrumbs.vue'
+import MainLayoutTopNavBar from "./components/MainLayoutTopNavBar.vue";
+import MainLayoutSideNavBar from "./components/MainLayoutSideNavBar.vue";
+import MainLayoutBreadcrumbs from "./components/MainLayoutBreadcrumbs.vue";
 </script>
 
 <template>

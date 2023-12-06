@@ -1,7 +1,7 @@
 <script setup>
 import WidgetActivitiesDropDown from "./WidgetActivitiesDropDown.vue";
 import VueTailwindDatePicker from "vue-tailwind-datepicker";
-import WidgetInteger from "./WidgetInteger.vue"
+import WidgetInteger from "./WidgetInteger.vue";
 import { ref } from "vue";
 
 const dateValue = ref("");
@@ -11,62 +11,119 @@ const dateValue = ref("");
   <form class="w-full">
     <div class="flex flex-wrap -mx-3 mb-6">
       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+        <label
+          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          for="grid-first-name"
+        >
           Date
         </label>
-        <p id="helper-text-explanation" class="mb-2 text-sm text-gray-500 dark:text-gray-400">On which date did you workout?</p>
+        <p
+          id="helper-text-explanation"
+          class="mb-2 text-sm text-gray-500 dark:text-gray-400"
+        >
+          On which date did you workout?
+        </p>
         <div class="w-64">
           <VueTailwindDatePicker
-              v-model="dateValue"
-              as-single
-              @select-month="onSelectSomething($event)"
+            v-model="dateValue"
+            as-single
+            @select-month="onSelectSomething($event)"
           />
-        </div>          
+        </div>
       </div>
       <div class="w-full md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+        <label
+          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          for="grid-last-name"
+        >
           Activity Type
         </label>
-        <p id="helper-text-explanation" class="mb-2 text-sm text-gray-500 dark:text-gray-400">Specify the type of activity you engaged in during your workout session:</p>
+        <p
+          id="helper-text-explanation"
+          class="mb-2 text-sm text-gray-500 dark:text-gray-400"
+        >
+          Specify the type of activity you engaged in during your workout
+          session:
+        </p>
         <WidgetActivitiesDropDown />
       </div>
     </div>
     <div class="flex flex-wrap -mx-3 mb-5">
       <div class="w-full px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+        <label
+          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          for="grid-password"
+        >
           Distance
         </label>
-        <p id="helper-text-explanation" class="mb-2 text-sm text-gray-500 dark:text-gray-400">What distance in kilometers did you cover in the workout?</p>
+        <p
+          id="helper-text-explanation"
+          class="mb-2 text-sm text-gray-500 dark:text-gray-400"
+        >
+          What distance in kilometers did you cover in the workout?
+        </p>
         <WidgetInteger />
       </div>
     </div>
     <div class="flex flex-wrap -mx-3 mb-2">
       <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
+        <label
+          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          for="grid-city"
+        >
           City
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Albuquerque">
+        <input
+          class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          id="grid-city"
+          type="text"
+          placeholder="Albuquerque"
+        />
       </div>
       <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+        <label
+          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          for="grid-state"
+        >
           State
         </label>
         <div class="relative">
-          <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+          <select
+            class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="grid-state"
+          >
             <option>New Mexico</option>
             <option>Missouri</option>
             <option>Texas</option>
           </select>
-          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          <div
+            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+          >
+            <svg
+              class="fill-current h-4 w-4"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+              />
+            </svg>
           </div>
         </div>
       </div>
       <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+        <label
+          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          for="grid-zip"
+        >
           Zip
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210">
+        <input
+          class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          id="grid-zip"
+          type="text"
+          placeholder="90210"
+        />
       </div>
     </div>
   </form>

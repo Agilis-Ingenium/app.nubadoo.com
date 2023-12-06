@@ -3,18 +3,18 @@ name: Deploy Vue App to AWS S3
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
   # Run manually
   workflow_dispatch:
 
 jobs:
-  build: 
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+
       # Setup NodeJS in our environment
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
@@ -24,9 +24,9 @@ jobs:
         run: |
           npm install
           npm run build
-          
+
       # Syncs the 'dist' folder from buildng the Vue app with an S3 bucket
-      
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -36,8 +36,8 @@ jobs:
 
       - name: Upload files to S3 with AWS CLI
         run: |
-          aws s3 sync dist/ s3://app.nubadoo.com --delete 
-        
+          aws s3 sync dist/ s3://app.nubadoo.com --delete
+
       # Clears the CloudFront cache so new requests will receive the latest version of your app
       #- name: Invalidate Cloudfront
       #  uses: chetan/invalidate-cloudfront-action@v1.3

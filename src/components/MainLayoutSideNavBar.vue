@@ -1,19 +1,19 @@
 <script setup>
-import IconSideBarOverview from './icons/IconSideBarOverview.vue'
-import IconSideBarActivities from './icons/IconSideBarActivities.vue'
-import IconSideBarFitnessGoals from './icons/IconSideBarFitnessGoals.vue'
-import IconSideBarFoodItems from './icons/IconSideBarFoodItems.vue'
-import IconSideBarMetrics from './icons/IconSideBarMetrics.vue'
-import IconSideBarWorkoutPlans from './icons/IconSideBarWorkoutPlans.vue'
-import IconSideBarMealLogs from './icons/IconSideBarMealLogs.vue'
-import IconSideBarBottomDXPortal from './icons/IconSideBarBottomDXPortal.vue'
-import IconSideBarBottomGetSupport from './icons/IconSideBarBottomGetSupport.vue'
-import IconSideBarBottomWebsite from './icons/IconSideBarBottomWebsite.vue'
-import IconSideBarBottomTermsService from './icons/IconSideBarBottomTermsService.vue'
+import IconSideBarOverview from "./icons/IconSideBarOverview.vue";
+import IconSideBarActivities from "./icons/IconSideBarActivities.vue";
+import IconSideBarFitnessGoals from "./icons/IconSideBarFitnessGoals.vue";
+import IconSideBarFoodItems from "./icons/IconSideBarFoodItems.vue";
+import IconSideBarMetrics from "./icons/IconSideBarMetrics.vue";
+import IconSideBarWorkoutPlans from "./icons/IconSideBarWorkoutPlans.vue";
+import IconSideBarMealLogs from "./icons/IconSideBarMealLogs.vue";
+import IconSideBarBottomDXPortal from "./icons/IconSideBarBottomDXPortal.vue";
+import IconSideBarBottomGetSupport from "./icons/IconSideBarBottomGetSupport.vue";
+import IconSideBarBottomWebsite from "./icons/IconSideBarBottomWebsite.vue";
+import IconSideBarBottomTermsService from "./icons/IconSideBarBottomTermsService.vue";
 
-import SideNavBarMainMenuOption from './SideNavBarMainMenuOption.vue'
-import SideNavBarBottomMenuOption from './SideNavBarBottomMenuOption.vue'
-import SideNavBarSubMenuMetrics from './SideNavBarSubMenuMetrics.vue'
+import SideNavBarMainMenuOption from "./SideNavBarMainMenuOption.vue";
+import SideNavBarBottomMenuOption from "./SideNavBarBottomMenuOption.vue";
+import SideNavBarSubMenuMetrics from "./SideNavBarSubMenuMetrics.vue";
 </script>
 
 <template>
@@ -26,7 +26,9 @@ import SideNavBarSubMenuMetrics from './SideNavBarSubMenuMetrics.vue'
       <form action="#" method="GET" class="md:hidden mb-2">
         <label for="sidebar-search" class="sr-only">Search</label>
         <div class="relative">
-          <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+          <div
+            class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
+          >
             <svg
               class="w-5 h-5 text-gray-500 dark:text-gray-400"
               fill="currentColor"
@@ -81,10 +83,15 @@ import SideNavBarSubMenuMetrics from './SideNavBarSubMenuMetrics.vue'
         </router-link>
 
         <router-link to="/metrics">
-          <SideNavBarMainMenuOption label="Capture Metrics"  dropdown="true" aria-controls="dropdown-pages" data-collapse-toggle="dropdown-pages">
+          <SideNavBarMainMenuOption
+            label="Capture Metrics"
+            dropdown="true"
+            aria-controls="dropdown-pages"
+            data-collapse-toggle="dropdown-pages"
+          >
             <IconSideBarMetrics />
-          </SideNavBarMainMenuOption>  
-        </router-link>          
+          </SideNavBarMainMenuOption>
+        </router-link>
         <SideNavBarSubMenuMetrics />
 
         <router-link to="/workout-plans">

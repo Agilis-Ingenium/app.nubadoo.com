@@ -1,5 +1,5 @@
 <script setup>
-defineProps(['link', 'name', 'label'])
+defineProps(["link", "name", "label"]);
 </script>
 
 <template>

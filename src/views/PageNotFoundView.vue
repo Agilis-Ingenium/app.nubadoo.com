@@ -7,13 +7,15 @@
         >
           404
         </h1>
-        <p class="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
+        <p
+          class="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white"
+        >
           Page Not Found
         </p>
         <p class="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">
-          Uh-oh! It looks like you've stumbled upon uncharted territory. We couldn't find the page
-          you were looking for. Fear not! Our team of digital explorers is on the case, mapping out
-          new paths as we speak.
+          Uh-oh! It looks like you've stumbled upon uncharted territory. We
+          couldn't find the page you were looking for. Fear not! Our team of
+          digital explorers is on the case, mapping out new paths as we speak.
         </p>
         <a
           href="#"
