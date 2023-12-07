@@ -5,6 +5,7 @@ import axios from "axios";
 import AlertError from "./AlertError.vue";
 import AlertMessage from "./AlertMessage.vue";
 import WidegtDeleteButton from "./WidgetDeleteButton.vue";
+import WidgetViewButton from "./WidgetViewButton.vue";
 
 const items = defineProps({
   items: Object,
@@ -83,10 +84,11 @@ function DeleteActivity(id, index, items) {
           </td>
           <td class="px-6 py-4">
             <a
-              href="#"
+              :href="'/activities/' + item.activityId"
               class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >Edit</a
             >
+              <WidgetViewButton />
+            </a>
           </td>
           <td class="px-6 py-4">
             <a

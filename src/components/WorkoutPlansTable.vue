@@ -15,15 +15,13 @@ defineProps({
 
 function Delete(id, index, items) {
   if (
-    confirm(
-        "Are you sure that you really want to delete this workout plan?",
-    )
+    confirm("Are you sure that you really want to delete this workout plan?")
   ) {
     axios
       .delete("/v1/workout-plans/" + id)
       .then((resp) => {
         items.splice(index, 1);
-        this.items = items
+        this.items = items;
       })
       .catch((error) => {
         console.log(error);

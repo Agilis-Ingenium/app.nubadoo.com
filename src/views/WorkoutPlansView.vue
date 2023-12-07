@@ -29,6 +29,7 @@ export default {
         this.loading = false;
       })
       .catch((error) => {
+        console.log(error);
         this.error = error.message;
         this.loading = false;
       });

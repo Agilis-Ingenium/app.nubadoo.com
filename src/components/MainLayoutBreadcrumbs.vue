@@ -1,3 +1,12 @@
+<script setup>
+defineProps({
+  breadcrumbs: {
+    type: Array,
+    required: true,
+  },
+});
+</script>
+
 <template>
   <!-- Breadcrumb -->
   <div class="pb-5">
@@ -47,11 +56,11 @@
             <a
               href="#"
               class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white"
-              >Templates</a
+              >{{ breadcrumbs[0] }}</a
             >
           </div>
         </li>
-        <li aria-current="page">
+        <li aria-current="page" v-if="breadcrumbs[1]">
           <div class="flex items-center">
             <svg
               class="rtl:rotate-180 w-3 h-3 mx-1 text-gray-400"
@@ -70,7 +79,30 @@
             </svg>
             <span
               class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400"
-              >Flowbite</span
+              >{{ breadcrumbs[1] }}</span
+            >
+          </div>
+        </li>
+        <li aria-current="page" v-if="breadcrumbs[2]">
+          <div class="flex items-center">
+            <svg
+              class="rtl:rotate-180 w-3 h-3 mx-1 text-gray-400"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 9 4-4-4-4"
+              />
+            </svg>
+            <span
+              class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400"
+              >{{ breadcrumbs[2] }}</span
             >
           </div>
         </li>

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import ActivitiesView from "../views/ActivitiesView.vue";
+import Activities from "../views/Activities.vue";
+
 import FitnessGoalsView from "../views/FitnessGoalsView.vue";
 import FoodItemsView from "../views/FoodItemsView.vue";
 import WorkoutPlansView from "../views/WorkoutPlansView.vue";
@@ -17,9 +18,9 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/activities",
+      path: "/activities/:action/:id?",
       name: "Activities",
-      component: ActivitiesView,
+      component: Activities,
     },
     {
       path: "/fitness-goals",
