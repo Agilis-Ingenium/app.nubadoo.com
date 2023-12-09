@@ -3,6 +3,12 @@ import MainLayoutTopNavBar from "./components/MainLayoutTopNavBar.vue";
 import MainLayoutSideNavBar from "./components/MainLayoutSideNavBar.vue";
 </script>
 
+<script>
+export default {
+  name: "app",
+};
+</script>
+
 <template>
   <div class="antialiased bg-gray-50 dark:bg-gray-900">
     <MainLayoutTopNavBar></MainLayoutTopNavBar>

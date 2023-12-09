@@ -1,58 +1,120 @@
-import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import Activities from "../views/Activities.vue";
 
-import FitnessGoalsView from "../views/FitnessGoalsView.vue";
-import FoodItemsView from "../views/FoodItemsView.vue";
-import WorkoutPlansView from "../views/WorkoutPlansView.vue";
+// activities
+import ActivitiesList from "../views/ActivitiesList.vue";
+import ActivitiesEdit from "../views/ActivitiesEdit.vue";
+import ActivitiesAdd from "../views/ActivitiesAdd.vue";
+
+// fitness-goals
+import FitnessGoalsList from "../views/FitnessGoalsList.vue";
+import FitnessGoalsEdit from "../views/FitnessGoalsEdit.vue";
+import FitnessGoalsAdd from "../views/FitnessGoalsAdd.vue";
+
+// food-items
+import FoodItemsList from "../views/FoodItemsList.vue";
+import FoodItemsEdit from "../views/FoodItemsEdit.vue";
+import FoodItemsAdd from "../views/FoodItemsAdd.vue";
+
+// meal-logs
+//import MealLogsList from "../views/MealLogsList.vue";
+//import MealLogsEdit from "../views/MealLogsEdit.vue";
+//import MealLogsAdd from "../views/MealLogsAdd.vue";
+
+// workout-plans
+import WorkoutPlansList from "../views/WorkoutPlansList.vue";
+import WorkoutPlansEdit from "../views/WorkoutPlansEdit.vue";
+import WorkoutPlansAdd from "../views/WorkoutPlansAdd.vue";
+
+// other
 import PageNotFoundView from "../views/PageNotFoundView.vue";
-import MetricsWeightView from "../views/MetricsWeightView.vue";
-import CaptureMetricsView from "../views/CaptureMetricsView.vue";
+
+import { createWebHistory, createRouter } from "vue-router";
+
+const routes = [
+  {
+    path: "/",
+    name: "Home",
+    component: HomeView,
+  },
+
+  {
+    path: "/activities",
+    alias: "/activities/list",
+    name: "ActivitiesList",
+    component: ActivitiesList,
+  },
+  {
+    path: "/activities/view/:id?",
+    name: "ActivitiesEdit",
+    component: ActivitiesEdit,
+  },
+  {
+    path: "/activities/add",
+    name: "ActivitiesAdd",
+    component: ActivitiesAdd,
+  },
+
+  {
+    path: "/fitness-goals",
+    alias: "/fitness-goals/list",
+    name: "FitnessGoalsList",
+    component: FitnessGoalsList,
+  },
+  {
+    path: "/fitness-goals/view/:id?",
+    name: "FitnessGoalsEdit",
+    component: FitnessGoalsEdit,
+  },
+  {
+    path: "/fitness-goals/add",
+    name: "FitnessGoalsAdd",
+    component: FitnessGoalsAdd,
+  },
+
+  {
+    path: "/food-items",
+    alias: "/food-items/list",
+    name: "FoodItemsList",
+    component: FoodItemsList,
+  },
+  {
+    path: "/food-items/view/:id?",
+    name: "FoodItemsEdit",
+    component: FoodItemsEdit,
+  },
+  {
+    path: "/food-items/add",
+    name: "FoodItemsAdd",
+    component: FoodItemsAdd,
+  },
+
+  {
+    path: "/workout-plans",
+    alias: "/workout-plans/list",
+    name: "WorkoutPlansList",
+    component: WorkoutPlansList,
+  },
+  {
+    path: "/workout-plans/view/:id?",
+    name: "WorkoutPlansEdit",
+    component: WorkoutPlansEdit,
+  },
+  {
+    path: "/workout-plans/add",
+    name: "WorkoutPlansAdd",
+    component: WorkoutPlansAdd,
+  },
+
+  {
+    path: "/:catchAll(.*)*",
+    name: "PageNotFound",
+    component: PageNotFoundView,
+  },
+];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: "/",
-      name: "Home",
-      component: HomeView,
-    },
-    {
-      path: "/activities/:action/:id?",
-      name: "Activities",
-      component: Activities,
-    },
-    {
-      path: "/fitness-goals",
-      name: "FitnessGoals",
-      component: FitnessGoalsView,
-    },
-    {
-      path: "/food-items",
-      name: "FoodItems",
-      component: FoodItemsView,
-    },
-    {
-      path: "/workout-plans",
-      name: "WorkoutPlans",
-      component: WorkoutPlansView,
-    },
-    {
-      path: "/weight",
-      name: "MetricsWeight",
-      component: MetricsWeightView,
-    },
-    {
-      path: "/metrics",
-      name: "Capture Matrics",
-      component: CaptureMetricsView,
-    },
-    {
-      path: "/:catchAll(.*)*",
-      name: "PageNotFound",
-      component: PageNotFoundView,
-    },
-  ],
+  history: createWebHistory(),
+  routes,
 });
 
 export default router;

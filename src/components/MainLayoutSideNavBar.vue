@@ -58,7 +58,7 @@ import SideNavBarSubMenuMetrics from "./SideNavBarSubMenuMetrics.vue";
           </SideNavBarMainMenuOption>
         </router-link>
 
-        <router-link to="/activities">
+        <router-link to="/activities/list">
           <SideNavBarMainMenuOption label="Activities">
             <IconSideBarActivities />
           </SideNavBarMainMenuOption>
