@@ -1,27 +1,23 @@
 <script setup>
 import FitnessGoalGrid from "../components/FitnessGoalGrid.vue";
 import PageHeader from "../components/PageHeader.vue";
-import AlertError from "../components/AlertError.vue";
-import WidgetLoadingSpinner from "../components/WidgetLoadingSpinner.vue";
-import AlertMessage from "../components/AlertMessage.vue";
+import FitnessGoalsDataService from "../services/FitnessGoalsDataService";
 </script>
 
 <script>
-import FitnessGoalsDataService from "../services/FitnessGoalsDataService";
-
 export default {
   name: "FitnessGoalsList",
   data() {
     return {
-      fitnessGoals: [],
-      currentFitnessGoal: null,
-      currentIndex: -1,
-      error: "",
+      items: [],
       page: {
         title: "Your Health Goal Hub",
         description:
           "Set your sights high and watch your journey unfold! Explore our Goals feature to define your aspirations, track your progress, and celebrate milestones. Whether you're reaching for personal triumphs or professional achievements, this is your space to dream big and turn your goals into glorious realities.",
         breadcrumbs: ["Fitness Goals", "List"],
+        loading: true,
+        message: "",
+        error: "",
       },
     };
   },
@@ -34,19 +30,25 @@ export default {
     retrieveFitnessGoals() {
       FitnessGoalsDataService.getAll()
         .then((response) => {
-          this.fitnessGoals = response.data;
+          this.page.loading = true;
+          this.items = response.data;
+          this.page.message = this.items.length == 0 ? "No records found." : "";
+          //console.log(response);
+          this.page.loading = false;
         })
         .catch((error) => {
           console.log(error);
-          this.error = error;
+          this.page.error = error;
+          this.page.loading = false;
         });
     },
 
-    deleteActivity(fitnessGoalId, index) {
-      FitnessGoalsDataService.delete(fitnessGoalId)
+    deleteFitnessGoal(itemId, index) {
+      FitnessGoalsDataService.delete(itemId)
         .then((response) => {
-          console.log(response.data);
-          this.activities.splice(index, 1);
+          //console.log(response.data);
+          this.items.splice(index, 1);
+          this.page.message = this.items.length == 0 ? "No records found." : "";
         })
         .catch((error) => {
           console.log(error);
@@ -59,15 +61,9 @@ export default {
 <template>
   <PageHeader :page="page" />
 
-  <div v-if="error">
-    <AlertError :error-message="error" />
-  </div>
-
-  <div v-else-if="fitnessGoals.length == 0">
-    <AlertMessage alert-message="No fitness goals found." />
-  </div>
-
-  <div v-else>
-    <FitnessGoalGrid :items="fitnessGoals" />
-  </div>
+  <FitnessGoalGrid
+    v-if="items.length > 0"
+    :goals="items"
+    @delete-fitness-goal="deleteFitnessGoal"
+  />
 </template>

@@ -2,77 +2,50 @@
 import WorkoutPlanCardColourfulBadge from "./WorkoutPlanCardColourfulBadge.vue";
 import { prettyDate } from "./helpers";
 import WidgetDeleteButton from "./WidgetDeleteButton.vue";
-import AlertError from "../components/AlertError.vue";
-import WidgetLoadingSpinner from "../components/WidgetLoadingSpinner.vue";
-import axios from "axios";
+import WidgetViewButton from "./WidgetViewButton.vue";
 
-defineProps({
-  items: {
-    type: Array,
-    required: true,
-  },
+const props = defineProps({
+  workoutPlans: Array
 });
 
-function Delete(id, index, items) {
-  if (
-    confirm("Are you sure that you really want to delete this workout plan?")
-  ) {
-    axios
-      .delete("/v1/workout-plans/" + id)
-      .then((resp) => {
-        items.splice(index, 1);
-        this.items = items;
-      })
-      .catch((error) => {
-        console.log(error);
-        this.error = error;
-      });
-  }
-}
+const emit = defineEmits(["delete-workout-plan"]);
 </script>
 
 <template>
-  <div v-if="loading">
-    <WidgetLoadingSpinner />
-  </div>
-  <div v-if="error">
-    <AlertError :errorMessage="error" />
-  </div>
   <div class="grid gap-8 lg:grid-cols-2">
     <article
-      v-for="(item, index) in items"
-      :key="item.planId"
-      :item="item"
+      v-for="(plan, index) in workoutPlans"
+      :key="plan.planId"
       class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
     >
       <div class="flex justify-between items-center mb-5 text-gray-500">
         <WorkoutPlanCardColourfulBadge
-          :text="item.goal"
-          :planId="item.planId"
+          :text="plan.goal"
+          :plan-id="plan.planId"
         />
-        <span class="text-sm">Added: {{ prettyDate(item.planDate) }}</span>
+        <span class="text-sm">Added: {{ prettyDate(plan.planDate) }}</span>
       </div>
       <h2
         class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
       >
-        <a href="#">{{ item.planName }}</a>
+        <a href="#">{{ plan.planName }}</a>
       </h2>
       <p class="mb-5 font-light text-gray-500 dark:text-gray-400">
-        {{ item.description }}
+        {{ plan.description }}
       </p>
       <div class="flex justify-between items-center">
         <div class="flex items-center space-x-4">
           <WorkoutPlanCardColourfulBadge
-            :text="item.duration"
-            :planId="item.planId + 1"
+            :text="plan.duration"
+            :planId="plan.planId + 1"
           />
         </div>
-        <a
-          href="javascript:;"
-          v-on:click="Delete(item.planId, index, this.items)"
-        >
-          <WidgetDeleteButton />
+        <a :href="'/workout-plans/view/' + plan.planId">
+          <WidgetViewButton />
         </a>
+        <WidgetDeleteButton
+          @click="$emit('delete-workout-plan', plan.planId, index)"
+        />
       </div>
     </article>
   </div>

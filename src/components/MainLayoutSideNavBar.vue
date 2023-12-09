@@ -75,7 +75,7 @@ import SideNavBarSubMenuMetrics from "./SideNavBarSubMenuMetrics.vue";
             <IconSideBarFoodItems />
           </SideNavBarMainMenuOption>
         </router-link>
-
+        <!--
         <router-link to="/meal-logs">
           <SideNavBarMainMenuOption label="Meal Logs">
             <IconSideBarMealLogs />
@@ -93,7 +93,7 @@ import SideNavBarSubMenuMetrics from "./SideNavBarSubMenuMetrics.vue";
           </SideNavBarMainMenuOption>
         </router-link>
         <SideNavBarSubMenuMetrics />
-
+      -->
         <router-link to="/workout-plans">
           <SideNavBarMainMenuOption label="Workout Plans">
             <IconSideBarWorkoutPlans />

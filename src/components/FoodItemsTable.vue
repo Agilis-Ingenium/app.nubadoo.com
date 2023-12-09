@@ -1,44 +1,16 @@
 <script setup>
 import { foodImage } from "./helpers/food-items-helpers";
 import WidgetDeleteButton from "./WidgetDeleteButton.vue";
-import axios from "axios";
-import AlertError from "../components/AlertError.vue";
-import WidgetLoadingSpinner from "../components/WidgetLoadingSpinner.vue";
+import WidgetViewButton from "./WidgetViewButton.vue";
 
-defineProps({
-  items: {
-    type: Array,
-    required: true,
-  },
+const props = defineProps({
+  foodItems: Array,
 });
 
-function Delete(id, index, items) {
-  if (
-    confirm(
-      "Are you sure that you really want to delete this food item from the community pantry?",
-    )
-  ) {
-    axios
-      .delete("/v1/food-items/" + id)
-      .then((resp) => {
-        items.splice(index, 1);
-        //this.items = items
-      })
-      .catch((error) => {
-        console.log(error);
-        this.error = error;
-      });
-  }
-}
+const emit = defineEmits(["delete-food-item"]);
 </script>
 
 <template>
-  <div v-if="loading">
-    <WidgetLoadingSpinner />
-  </div>
-  <div v-if="error">
-    <AlertError :errorMessage="error" />
-  </div>
   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table
       class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
@@ -61,47 +33,48 @@ function Delete(id, index, items) {
       </thead>
       <tbody>
         <tr
-          v-for="(item, index) in items"
-          :key="item.foodItemId"
+          v-for="(foodItem, index) in foodItems"
+          :key="foodItem.foodItemId"
           class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
         >
           <td class="p-4">
             <img
-              :src="foodImage(item.name)"
+              :src="foodImage(foodItem.name)"
               class="w-16 md:w-32 max-w-full max-h-full"
-              :alt="item.name"
+              :alt="foodItem.name"
             />
           </td>
           <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-            {{ item.name }}
+            {{ foodItem.name }}
           </td>
           <td class="px-6 py-4 text-gray-900 dark:text-white">
-            {{ item.calories }}
+            {{ foodItem.calories }}
           </td>
           <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-            {{ item.carbohydrates }}
+            {{ foodItem.carbohydrates }}
           </td>
           <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-            {{ item.proteins }}
+            {{ foodItem.proteins }}
           </td>
           <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-            {{ item.fats }}
+            {{ foodItem.fats }}
           </td>
           <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-            {{ item.vitamins }}
+            {{ foodItem.vitamins }}
           </td>
           <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-            {{ item.minerals }}
+            {{ foodItem.minerals }}
           </td>
           <td class="px-6 py-4">
             <div class="flex items-center">
-              <a
-                class="ms-3"
-                href="javascript:;"
-                v-on:click="Delete(item.foodItemId, index, this.items)"
-              >
-                <WidgetDeleteButton />
+              <a :href="'/food-items/view/' + foodItem.foodItemId">
+                <WidgetViewButton />
               </a>
+              <div class="ms-3">
+                <WidgetDeleteButton
+                  @click="$emit('delete-food-item', foodItem.foodItemId, index)"
+                />
+              </div>
             </div>
           </td>
         </tr>

@@ -1,20 +1,38 @@
 <script setup>
 import MainLayoutBreadcrumbs from "./MainLayoutBreadcrumbs.vue";
+import WidgetLoadingSpinner from "../components/WidgetLoadingSpinner.vue";
+import AlertMessage from "../components/AlertMessage.vue";
+import AlertError from "../components/AlertError.vue";
 
 defineProps({
   page: {
     title: {
       type: String,
-      required: true,
+      required: false,
+      default: "Page Title",
     },
     description: {
       type: String,
       required: false,
+      default: "Page description...",
     },
     breadcrumbs: {
       type: Array,
       required: false,
+      default: ["Breadcrumbs"],
     },
+    loading: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    message: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    type: Object,
+    required: true,
   },
 });
 </script>
@@ -31,5 +49,20 @@ defineProps({
     >
       {{ page.description }}
     </p>
+  </div>
+
+  <!-- Loading Spinner (supersedes error and messgae)-->
+  <div v-if="page.loading">
+    <WidgetLoadingSpinner />
+  </div>
+
+  <!-- Message (show if no error or loading) -->
+  <div v-else-if="page.message && !page.error">
+    <AlertMessage :alert-message="page.message" />
+  </div>
+
+  <!-- Error (supercedes message )-->
+  <div v-else-if="page.error">
+    <AlertError :error-message="page.error" />
   </div>
 </template>
