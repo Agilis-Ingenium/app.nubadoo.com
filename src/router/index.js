@@ -44,7 +44,7 @@ const routes = [
     component: ActivitiesList,
   },
   {
-    path: "/activities/view/:id?",
+    path: "/activities/view/:id",
     name: "ActivitiesEdit",
     component: ActivitiesEdit,
   },

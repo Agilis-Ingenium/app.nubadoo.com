@@ -5,7 +5,7 @@ import WidgetDeleteButton from "./WidgetDeleteButton.vue";
 import WidgetViewButton from "./WidgetViewButton.vue";
 
 const props = defineProps({
-  workoutPlans: Array
+  workoutPlans: Array,
 });
 
 const emit = defineEmits(["delete-workout-plan"]);

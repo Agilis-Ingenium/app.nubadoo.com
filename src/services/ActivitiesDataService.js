@@ -14,7 +14,7 @@ class ActivitiesDataService {
   }
 
   update(id, data) {
-    return http.put(`/activities/${id}`, data);
+    return http.patch(`/activities/${id}`, data);
   }
 
   delete(id) {

@@ -2,6 +2,7 @@
 import ActivitiesListTable from "../components/ActivitiesListTable.vue";
 import PageHeader from "../components/PageHeader.vue";
 import ActivitiesDataService from "../services/ActivitiesDataService";
+import WidgetAddButton from "../components/WidgetAddButton.vue";
 </script>
 
 <script>
@@ -60,6 +61,11 @@ export default {
 
 <template>
   <PageHeader :page="page" />
+
+  <div class="flex md:flex md:flex-grow flex-row justify-end space-x-1">
+    <a href="/activities/add"><WidgetAddButton /></a>
+  </div>
+
   <ActivitiesListTable
     v-if="items.length > 0"
     :activities="items"
