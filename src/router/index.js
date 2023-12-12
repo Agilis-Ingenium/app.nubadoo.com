@@ -70,7 +70,6 @@ const routes = [
     name: "FitnessGoalsAdd",
     component: FitnessGoalsAdd,
   },
-
   {
     path: "/food-items",
     alias: "/food-items/list",

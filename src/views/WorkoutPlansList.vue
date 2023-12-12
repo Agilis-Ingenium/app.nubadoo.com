@@ -2,6 +2,7 @@
 import WorkoutPlansTable from "../components/WorkoutPlansTable.vue";
 import PageHeader from "../components/PageHeader.vue";
 import WorkoutPlansDataService from "../services/WorkoutPlansDataService";
+import WidgetAddButton from "../components/WidgetAddButton.vue";
 </script>
 
 <script>
@@ -60,6 +61,11 @@ export default {
 
 <template>
   <PageHeader :page="page" />
+
+  <div class="flex md:flex md:flex-grow flex-row justify-end space-x-1">
+    <a href="/workout-plans/add"><WidgetAddButton /></a>
+  </div>
+
   <WorkoutPlansTable
     v-if="items.length > 0"
     :workout-plans="items"

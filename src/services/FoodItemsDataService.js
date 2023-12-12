@@ -14,7 +14,7 @@ class FoodItemsDataService {
   }
 
   update(id, data) {
-    return http.put(`/food-items/${id}`, data);
+    return http.patch(`/food-items/${id}`, data);
   }
 
   delete(id) {

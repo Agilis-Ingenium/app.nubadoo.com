@@ -54,7 +54,7 @@ defineProps({
               />
             </svg>
             <a
-              :href="'/'+breadcrumbs[0].replace(/\s+/g, '-').toLowerCase()"
+              :href="'/' + breadcrumbs[0].replace(/\s+/g, '-').toLowerCase()"
               class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white"
               >{{ breadcrumbs[0] }}</a
             >

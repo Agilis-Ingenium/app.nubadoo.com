@@ -2,6 +2,7 @@
 import FoodItemsTable from "../components/FoodItemsTable.vue";
 import PageHeader from "../components/PageHeader.vue";
 import FoodItemsDataService from "../services/FoodItemsDataService";
+import WidgetAddButton from "../components/WidgetAddButton.vue";
 </script>
 
 <script>
@@ -60,6 +61,11 @@ export default {
 
 <template>
   <PageHeader :page="page" />
+
+  <div class="flex md:flex md:flex-grow flex-row justify-end space-x-1">
+    <a href="/food-items/add"><WidgetAddButton /></a>
+  </div>
+
   <FoodItemsTable
     v-if="items.length > 0"
     :food-items="items"

@@ -2,6 +2,7 @@
 import FitnessGoalGrid from "../components/FitnessGoalGrid.vue";
 import PageHeader from "../components/PageHeader.vue";
 import FitnessGoalsDataService from "../services/FitnessGoalsDataService";
+import WidgetAddButton from "../components/WidgetAddButton.vue";
 </script>
 
 <script>
@@ -33,7 +34,7 @@ export default {
           this.page.loading = true;
           this.items = response.data;
           this.page.message = this.items.length == 0 ? "No records found." : "";
-          //console.log(response);
+          console.log(response);
           this.page.loading = false;
         })
         .catch((error) => {
@@ -60,6 +61,10 @@ export default {
 
 <template>
   <PageHeader :page="page" />
+
+  <div class="flex md:flex md:flex-grow flex-row justify-end space-x-1">
+    <a href="/fitness-goals/add"><WidgetAddButton /></a>
+  </div>
 
   <FitnessGoalGrid
     v-if="items.length > 0"

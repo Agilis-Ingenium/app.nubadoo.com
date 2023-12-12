@@ -1,68 +1,93 @@
 <script setup>
-import WidegtDeleteButton from "../components/WidgetDeleteButton.vue";
-import WidgetViewButton from "../components/WidgetViewButton.vue";
 import PageHeader from "../components/PageHeader.vue";
+import FoodItemsDataService from "../services/FoodItemsDataService";
+import FoodItemViewUpdateTable from "../components/FoodItemViewUpdateTable.vue";
 </script>
 
 <script>
-import ActivitiesDataService from "../services/ActivitiesDataService";
-
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: "ActivitiesView",
+  name: "FoodItemsView",
   data() {
     return {
-      currentActivity: null,
-      message: "",
+      currentFoodItem: null,
       page: {
-        title: "Track Your Activities",
+        title: "The Community Pantry",
         description:
-          "Store fitness sessions so you can aggregate and analyze data related to physical activities and exercises, such as steps taken, distances covered, and workout intensity.",
-        breadcrumbs: ["Activities", "View", "NUMBER HERE"],
+          "Explore a diverse range of food items shared by the community. Discover an assortment of ingredients and culinary inspirations contributed by members. Engage with a collection of flavors, cuisines, and nutritional options that reflect the rich diversity of our community's food choices.",
+        breadcrumbs: ["Food Items", "View"],
+        loading: true,
+        message: "",
+        error: "",
       },
     };
   },
 
   mounted() {
-    this.message = "";
-    this.getActivity(this.$route.params.id);
+    this.page.message = "";
+    var requestedId = this.$route.params.id;
+
+    // Make sure requested id is just numbers
+    if (/^[0-9]*$/.test(requestedId)) {
+      this.page.breadcrumbs.push(requestedId);
+
+      // Retrieve record
+      this.getFoodItem(requestedId);
+    } else {
+      this.page.error = "Invalid Food Item ID.";
+      this.page.loading = false;
+    }
   },
 
   methods: {
-    getActivity(id) {
-      ActivitiesDataService.get(id)
+    getFoodItem(id) {
+      FoodItemsDataService.get(id)
         .then((response) => {
-          this.currentActivity = response.data;
+          this.currentFoodItem = response.data;
+          this.page.loading = false;
+          //console.log(response);
         })
         .catch((error) => {
-          this.error = error.message;
-          this.loading = false;
-          console.log(error);
+          this.page.error = error.message;
+          this.page.loading = false;
+          //console.log(error);
         });
     },
 
-    deleteActivity() {
-      ActivitiesDataService.delete(this.currentActivity.activityId)
+    deleteFoodItem() {
+      this.page.loading = true;
+      FoodItemsDataService.delete(this.currentFoodItem.foodItemId)
         .then((response) => {
-          console.log(response.data);
-          this.$router.push({ path: "/activities/list" });
+          //console.log(response.data);
+          this.page.message = "Record deleted"; // Never able to display- figure out how to
+          this.page.loading = false;
+          //this.$router.push({ name: "FoodItemsList" });
         })
         .catch((error) => {
-          console.log(error);
+          this.page.error = error;
+          this.page.loading = false;
+          //console.log(error);
         });
     },
 
-    updateActivity() {
-      ActivitiesDataService.update(
-        this.currentActivity.id,
-        this.currentActivity,
-      )
+    updateFoodItem() {
+      this.page.loading = true;
+
+      // Prep a new object without the food item id for posting
+      const objectToPost = { ...this.currentFoodItem };
+      delete objectToPost["foodItemId"];
+      //console.log(objectToPost)
+
+      FoodItemsDataService.update(this.currentFoodItem.foodItemId, objectToPost)
         .then((response) => {
-          console.log(response.data);
-          this.message = "The activity was updated successfully!";
+          //console.log(response);
+          this.page.loading = false;
+          this.page.message = "The food item was updated successfully!";
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
+          this.page.error = error;
+          this.page.loading = false;
         });
     },
   },
@@ -71,35 +96,10 @@ export default {
 
 <template>
   <PageHeader :page="page" />
-
-  <div v-if="currentActivity">
-    <h4>Activity</h4>
-    <label>Activity ID</label>
-    <input v-model="currentActivity.activityId" />
-    <br />
-    <label>User ID</label>
-    <input v-model="currentActivity.userId" />
-    <br />
-    <label>Activity Type</label>
-    <input v-model="currentActivity.activityType" />
-    <br />
-    <label>Activity Date</label>
-    <input v-model="currentActivity.activityDate" />
-    <br />
-    <label>Activity Intensity</label>
-    <input v-model="currentActivity.workoutIntensity" />
-    <br />
-    <label>Duration (Minutes)</label>
-    <input v-model="currentActivity.durationMinutes" />
-    <br />
-    <label>Distance (Kilometers)</label>
-    <input v-model="currentActivity.distanceKm" />
-    <a @click="deleteActivity"><WidegtDeleteButton /></a>
-    <button @click="updateActivity">Update</button>
-  </div>
-
-  <!--- ERROR, MESSAGE -->
-  <div v-else>
-    <p>The workout activity record was not found!!</p>
-  </div>
+  <FoodItemViewUpdateTable
+    v-if="currentFoodItem"
+    :foodItem="currentFoodItem"
+    @delete-food-item="deleteFoodItem"
+    @update-food-item="updateFoodItem"
+  />
 </template>

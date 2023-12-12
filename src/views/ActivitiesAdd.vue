@@ -22,7 +22,7 @@ export default {
         title: "Track Your Activities",
         description:
           "Store fitness sessions so you can aggregate and analyze data related to physical activities and exercises, such as steps taken, distances covered, and workout intensity.",
-        breadcrumbs: ["Activities", "View"],
+        breadcrumbs: ["Activities", "Add"],
         loading: true,
         message: "",
         error: "",
