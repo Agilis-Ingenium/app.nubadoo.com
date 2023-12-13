@@ -28,6 +28,9 @@ import WorkoutPlansAdd from "../views/WorkoutPlansAdd.vue";
 // other
 import PageNotFoundView from "../views/PageNotFoundView.vue";
 
+// metrics
+import Metrics from "../views/Metrics.vue";
+
 import { createWebHistory, createRouter } from "vue-router";
 
 const routes = [
@@ -102,6 +105,12 @@ const routes = [
     path: "/workout-plans/add",
     name: "WorkoutPlansAdd",
     component: WorkoutPlansAdd,
+  },
+
+  {
+    path: "/metrics/:type/:action?",
+    name: "Sleep",
+    component: Metrics,
   },
 
   {

@@ -22,7 +22,6 @@ const emit = defineEmits(["delete-workout-plan", "update-workout-plan"]);
 
     <form class="p-4 md:p-5">
       <div class="grid gap-4 mb-4 grid-cols-2">
-
         <!-- UserID -->
         <div class="col-span-2">
           <label
@@ -158,8 +157,6 @@ const emit = defineEmits(["delete-workout-plan", "update-workout-plan"]);
             required=""
           />
         </div>
-
-
       </div>
     </form>
     <div

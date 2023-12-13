@@ -81,19 +81,18 @@ import SideNavBarSubMenuMetrics from "./SideNavBarSubMenuMetrics.vue";
             <IconSideBarMealLogs />
           </SideNavBarMainMenuOption>
         </router-link>
+-->
 
-        <router-link to="/metrics">
-          <SideNavBarMainMenuOption
-            label="Capture Metrics"
-            dropdown="true"
-            aria-controls="dropdown-pages"
-            data-collapse-toggle="dropdown-pages"
-          >
-            <IconSideBarMetrics />
-          </SideNavBarMainMenuOption>
-        </router-link>
+        <SideNavBarMainMenuOption
+          label="Metrics"
+          dropdown="true"
+          aria-controls="dropdown-pages"
+          data-collapse-toggle="dropdown-pages"
+        >
+          <IconSideBarMetrics />
+        </SideNavBarMainMenuOption>
         <SideNavBarSubMenuMetrics />
-      -->
+
         <router-link to="/workout-plans">
           <SideNavBarMainMenuOption label="Workout Plans">
             <IconSideBarWorkoutPlans />
