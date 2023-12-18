@@ -31,7 +31,7 @@ export function sportyEmoji(value) {
       emoji = "💃";
       break;
     case "tennis":
-      emoji = "🚶🎾";
+      emoji = "🎾";
       break;
     case "hiking":
       emoji = "🥾";
