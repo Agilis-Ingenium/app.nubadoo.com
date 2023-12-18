@@ -3,7 +3,7 @@ import moment from "moment";
 export function prettyDate(date) {
   const d = new Date(date);
 
-  const prettyDate = moment(d).format("MMMM d, YYYY");
+  const prettyDate = moment(d).format("MMMM DD, YYYY");
 
   return prettyDate;
 }
