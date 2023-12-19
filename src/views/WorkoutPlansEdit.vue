@@ -2,6 +2,7 @@
 import PageHeader from "../components/PageHeader.vue";
 import WorkoutPlansDataService from "../services/WorkoutPlansDataService";
 import WorkoutPlanViewUpdateTable from "../components/WorkoutPlanViewUpdateTable.vue";
+import Swal from "sweetalert2";
 </script>
 
 <script>
@@ -55,14 +56,30 @@ export default {
     },
 
     deleteWorkoutPlan() {
-      WorkoutPlanDataService.delete(this.currentWorkoutPlan.planId)
-        .then((response) => {
-          console.log(response.data);
-          this.$router.push({ path: "/workout-plan/list" });
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      Swal.fire({
+        title: "DELECTION CONFIRMATION!",
+        text: "Are you sure that you want to delete the item?",
+        icon: "warning",
+        confirmButtonText: "Yes, delete it.",
+        cancelButtonText: "No, cancel.",
+        showCancelButton: true,
+        showCloseButton: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          WorkoutPlansDataService.delete(this.currentWorkoutPlan.planId)
+            .then((response) => {
+              //console.log(response.data);
+              this.page.message = "Record deleted"; // Never able to display- figure out how to
+              this.page.loading = false;
+              this.$router.push({ path: "/workout-plans" });
+            })
+            .catch((error) => {
+              this.page.error = error;
+              this.page.loading = false;
+              //console.log(error);
+            });
+        }
+      });
     },
 
     updateWorkoutPlan() {

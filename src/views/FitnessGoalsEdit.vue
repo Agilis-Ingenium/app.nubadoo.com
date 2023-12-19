@@ -2,6 +2,7 @@
 import PageHeader from "../components/PageHeader.vue";
 import FitnessGoalsDataService from "../services/FitnessGoalsDataService";
 import FitnessGoalViewUpdateTable from "../components/FitnessGoalViewUpdateTable.vue";
+import Swal from "sweetalert2";
 </script>
 
 <script>
@@ -56,19 +57,30 @@ export default {
     },
 
     deleteFitnessGoal() {
-      this.page.loading = true;
-      FitnessGoalsDataService.delete(this.currentFitnessGoal.goalId)
-        .then((response) => {
-          //console.log(response.data);
-          this.page.message = "Record deleted"; // Never able to display- figure out how to
-          this.page.loading = false;
-          this.$router.push({ name: "FitnessGoalsList" });
-        })
-        .catch((error) => {
-          this.page.error = error;
-          this.page.loading = false;
-          //console.log(error);
-        });
+      Swal.fire({
+        title: "DELECTION CONFIRMATION!",
+        text: "Are you sure that you want to delete the item?",
+        icon: "warning",
+        confirmButtonText: "Yes, delete it.",
+        cancelButtonText: "No, cancel.",
+        showCancelButton: true,
+        showCloseButton: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          FitnessGoalsDataService.delete(this.currentFitnessGoal.goalId)
+            .then((response) => {
+              //console.log(response.data);
+              this.page.message = "Record deleted"; // Never able to display- figure out how to
+              this.page.loading = false;
+              this.$router.push({ name: "FitnessGoalsList" });
+            })
+            .catch((error) => {
+              this.page.error = error;
+              this.page.loading = false;
+              //console.log(error);
+            });
+        }
+      });
     },
 
     updateFitnessGoal() {

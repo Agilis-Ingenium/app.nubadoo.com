@@ -2,6 +2,7 @@
 import PageHeader from "../components/PageHeader.vue";
 import ActivitiesDataService from "../services/ActivitiesDataService";
 import ActivityViewUpdateTable from "../components/ActivityViewUpdateTable.vue";
+import Swal from "sweetalert2";
 </script>
 
 <script>
@@ -55,19 +56,30 @@ export default {
     },
 
     deleteActivity() {
-      this.page.loading = true;
-      ActivitiesDataService.delete(this.currentActivity.activityId)
-        .then((response) => {
-          //console.log(response.data);
-          this.page.message = "Record deleted"; // Never able to display- figure out how to
-          this.page.loading = false;
-          this.$router.push({ name: "ActivitiesList" });
-        })
-        .catch((error) => {
-          this.page.error = error;
-          this.page.loading = false;
-          //console.log(error);
-        });
+      Swal.fire({
+        title: "DELECTION CONFIRMATION!",
+        text: "Are you sure that you want to delete the item?",
+        icon: "warning",
+        confirmButtonText: "Yes, delete it.",
+        cancelButtonText: "No, cancel.",
+        showCancelButton: true,
+        showCloseButton: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          ActivitiesDataService.delete(this.currentActivity.activityId)
+            .then((response) => {
+              //console.log(response.data);
+              this.page.message = "Record deleted"; // Never able to display- figure out how to
+              this.page.loading = false;
+              this.$router.push({ name: "ActivitiesList" });
+            })
+            .catch((error) => {
+              this.page.error = error;
+              this.page.loading = false;
+              //console.log(error);
+            });
+        }
+      });
     },
 
     updateActivity() {
