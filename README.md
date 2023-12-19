@@ -20,9 +20,11 @@ For an optimal development experience, consider using the following setup:
 - TypeScript Vue Plugin (Volar)
 
 ## Custom Configuration
+
 For detailed configuration options, refer to the Vite Configuration Reference.
 
 ## Compile and Minify for Production
+
 To build the application for production, execute:
 
 ```sh
@@ -30,9 +32,11 @@ npm run build
 ```
 
 ## GitHub Action
+
 The repository incorporates a GitHub Action that automatically compiles, minifies the app, and pushes it to an S3 bucket for static hosting upon updates to the main branch.
 
 ## Other Related Repositories
+
 - Infrastructure for the app is available in the Terraform code of the **infrastructure-as-code** repository.
 - Ensure proper handling of state files or refer to terraform-backend
 - Backend functionalities reside in the **api.nubadoo.com** repository.
@@ -42,6 +46,7 @@ The repository incorporates a GitHub Action that automatically compiles, minifie
 - Various supplementary repositories were instrumental during the project's development.
 
 ## Contributing
+
 To contribute, consider the following steps:
 
 - Review the issue list and create a branch relevant to an issue.

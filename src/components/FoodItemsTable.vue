@@ -24,11 +24,13 @@ const emit = defineEmits(["delete-food-item"]);
           </th>
           <th scope="col" class="px-6 py-3">Name</th>
           <th scope="col" class="px-6 py-3">Calories</th>
-          <th scope="col" class="px-6 py-3">Carbohydrates</th>
+          <th scope="col" class="px-6 py-3">Carbs&nbsp;&nbsp;&nbsp;</th>
           <th scope="col" class="px-6 py-3">Proteins</th>
-          <th scope="col" class="px-6 py-3">Fats</th>
+          <th scope="col" class="px-6 py-3">Fats&nbsp;&nbsp;&nbsp;&nbsp;</th>
+          <!--
           <th scope="col" class="px-6 py-3">Vitamins</th>
           <th scope="col" class="px-6 py-3">Minerals</th>
+          -->
         </tr>
       </thead>
       <tbody>
@@ -50,6 +52,7 @@ const emit = defineEmits(["delete-food-item"]);
           <td class="px-6 py-4 text-gray-900 dark:text-white">
             {{ foodItem.calories }}
           </td>
+
           <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
             {{ foodItem.carbohydrates }}
           </td>
@@ -59,12 +62,14 @@ const emit = defineEmits(["delete-food-item"]);
           <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
             {{ foodItem.fats }}
           </td>
+          <!--
           <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
             {{ foodItem.vitamins }}
           </td>
           <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
             {{ foodItem.minerals }}
           </td>
+        -->
           <td class="px-6 py-4">
             <div class="flex items-center">
               <a :href="'/food-items/view/' + foodItem.foodItemId">
