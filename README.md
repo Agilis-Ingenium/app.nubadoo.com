@@ -46,3 +46,5 @@ To contribute, consider the following steps:
 
 - Review the issue list and create a branch relevant to an issue.
 - Alternatively, create a pull request for your work, ensuring it meets testing, standards, and aligns with the product roadmap for potential merge into the main branch.
+
+small change
