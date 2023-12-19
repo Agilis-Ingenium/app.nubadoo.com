@@ -67,7 +67,12 @@
             >NuBaDoo Health Tracker App</span
           >
         </a>
-        <form action="#" method="GET" class="hidden md:block md:pl-2">
+        <form
+          action="#"
+          method="GET"
+          class="hidden md:block md:pl-2"
+          data-tooltip-target="tooltip-default"
+        >
           <label for="topbar-search" class="sr-only">Search</label>
           <div class="relative md:w-64 md:w-96">
             <div
@@ -92,6 +97,7 @@
               id="topbar-search"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
               placeholder="Search"
+              data-tooltip-target="tooltip-default"
             />
           </div>
         </form>
@@ -123,6 +129,7 @@
           type="button"
           data-dropdown-toggle="notification-dropdown"
           class="p-2 mr-1 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+          data-tooltip-target="tooltip-default"
         >
           <span class="sr-only">View notifications</span>
           <!-- Bell icon -->
@@ -142,6 +149,7 @@
         <div
           class="hidden overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-white rounded divide-y divide-gray-100 shadow-lg dark:divide-gray-600 dark:bg-gray-700 rounded-xl"
           id="notification-dropdown"
+          data-tooltip-target="tooltip-default"
         >
           <div
             class="block py-2 px-4 text-base font-medium text-center text-gray-700 bg-gray-50 dark:bg-gray-600 dark:text-gray-300"
@@ -409,6 +417,7 @@
           type="button"
           data-dropdown-toggle="apps-dropdown"
           class="p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+          data-tooltip-target="tooltip-default"
         >
           <span class="sr-only">View notifications</span>
           <!-- Icon -->
@@ -623,6 +632,7 @@
             class="w-8 h-8 rounded-full"
             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gough.png"
             alt="user photo"
+            data-tooltip-target="tooltip-default"
           />
         </button>
         <!-- Dropdown menu -->

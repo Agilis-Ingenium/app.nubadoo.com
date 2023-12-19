@@ -75,13 +75,12 @@ import SideNavBarSubMenuMetrics from "./SideNavBarSubMenuMetrics.vue";
             <IconSideBarFoodItems />
           </SideNavBarMainMenuOption>
         </router-link>
-        <!--
-        <router-link to="/meal-logs">
+
+        <div data-tooltip-target="tooltip-default">
           <SideNavBarMainMenuOption label="Meal Logs">
             <IconSideBarMealLogs />
           </SideNavBarMainMenuOption>
-        </router-link>
--->
+        </div>
 
         <SideNavBarMainMenuOption
           label="Metrics"
