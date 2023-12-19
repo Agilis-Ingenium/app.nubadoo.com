@@ -40,12 +40,14 @@ const emit = defineEmits(["delete-workout-plan"]);
             :planId="plan.planId + 1"
           />
         </div>
-        <a :href="'/workout-plans/view/' + plan.planId">
-          <WidgetViewButton />
-        </a>
-        <WidgetDeleteButton
-          @click="$emit('delete-workout-plan', plan.planId, index)"
-        />
+        <div class="content-end">
+          <a class="mr-3" :href="'/workout-plans/view/' + plan.planId">
+            <WidgetViewButton />
+          </a>
+          <WidgetDeleteButton
+            @click="$emit('delete-workout-plan', plan.planId, index)"
+          />
+        </div>
       </div>
     </article>
   </div>
