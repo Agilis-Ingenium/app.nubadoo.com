@@ -2,6 +2,7 @@
 import PageHeader from "../components/PageHeader.vue";
 import FoodItemsDataService from "../services/FoodItemsDataService";
 import FoodItemViewUpdateTable from "../components/FoodItemViewUpdateTable.vue";
+import Swal from "sweetalert2";
 </script>
 
 <script>
@@ -55,19 +56,31 @@ export default {
     },
 
     deleteFoodItem() {
-      this.page.loading = true;
-      FoodItemsDataService.delete(this.currentFoodItem.foodItemId)
-        .then((response) => {
-          //console.log(response.data);
-          this.page.message = "Record deleted"; // Never able to display- figure out how to
-          this.page.loading = false;
-          //this.$router.push({ name: "FoodItemsList" });
-        })
-        .catch((error) => {
-          this.page.error = error;
-          this.page.loading = false;
-          //console.log(error);
-        });
+      //this.page.loading = true;
+      Swal.fire({
+        title: "DELECTION CONFIRMATION!",
+        text: "Are you sure that you want to delete the item?",
+        icon: "warning",
+        confirmButtonText: "Yes, delete it.",
+        cancelButtonText: "No, cancel.",
+        showCancelButton: true,
+        showCloseButton: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          FoodItemsDataService.delete(this.currentFoodItem.foodItemId)
+            .then((response) => {
+              //console.log(response.data);
+              this.page.message = "Record deleted"; // Never able to display- figure out how to
+              this.page.loading = false;
+              this.$router.push({ name: "FoodItemsList" });
+            })
+            .catch((error) => {
+              this.page.error = error;
+              this.page.loading = false;
+              //console.log(error);
+            });
+        }
+      });
     },
 
     updateFoodItem() {
