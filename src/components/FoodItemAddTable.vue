@@ -35,6 +35,7 @@ const emit = defineEmits(["add-food-item"]);
             name="name"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-4/12 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
             required=""
+            maxlength="255"
           />
         </div>
 
@@ -48,10 +49,10 @@ const emit = defineEmits(["add-food-item"]);
           <input
             id="calories"
             v-model="foodItem.calories"
-            type="text"
-            name="calories"
+            type="number"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-4/12 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-            required=""
+            placeholder="0"
+            name="calories"
           />
         </div>
 
@@ -65,7 +66,8 @@ const emit = defineEmits(["add-food-item"]);
           <input
             id="carbohydrates"
             v-model="foodItem.carbohydrates"
-            type="text"
+            type="number"
+            placeholder="0"
             name="Carbohydrates"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-4/12 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
             required=""
@@ -82,7 +84,8 @@ const emit = defineEmits(["add-food-item"]);
           <input
             id="proteinsd"
             v-model="foodItem.proteins"
-            type="text"
+            type="number"
+            placeholder="0"
             name="uproteins"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-4/12 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
             required=""
@@ -99,7 +102,8 @@ const emit = defineEmits(["add-food-item"]);
           <input
             id="fats"
             v-model="foodItem.fats"
-            type="text"
+            type="number"
+            placeholder="0"
             name="fats"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-4/12 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
             required=""
@@ -120,6 +124,7 @@ const emit = defineEmits(["add-food-item"]);
             name="vitamins"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-4/12 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
             required=""
+            maxlength="255"
           />
         </div>
 
@@ -137,6 +142,7 @@ const emit = defineEmits(["add-food-item"]);
             name="minerals"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-4/12 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
             required=""
+            maxlength="255"
           />
         </div>
       </div>
