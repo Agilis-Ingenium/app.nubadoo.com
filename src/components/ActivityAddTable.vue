@@ -1,12 +1,19 @@
 <script setup>
 import WidgetSaveButton from "../components/WidgetSaveButton.vue";
 import WidgetCancelButton from "../components/WidgetCancelButton.vue";
+import VueTailwindDatePicker from "vue-tailwind-datepicker";
+import { ref } from "vue";
 
 const props = defineProps({
   activity: Object,
 });
 
 const emit = defineEmits(["add-activity"]);
+
+const formatter = ref({
+  date: "YYYY-MM-DD",
+  month: "MMM",
+});
 </script>
 
 <template>
@@ -22,20 +29,23 @@ const emit = defineEmits(["add-activity"]);
     <form class="p-4 md:p-5">
       <div class="grid gap-4 mb-4 grid-cols-2">
         <!-- userId -->
+        <!---TO DO: Should be post header with auth.-->
         <div class="col-span-2">
           <label
             for="userId"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >User ID</label
           >
-          <input
+          <select
             id="userId"
             v-model="activity.userId"
-            type="text"
             name="userId"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-4/12 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-            required=""
-          />
+          >
+            <option value="1" selected>User 1</option>
+            <option value="2">User 2</option>
+            <option value="3">User 3</option>
+          </select>
         </div>
 
         <!-- activityDate -->
@@ -45,14 +55,13 @@ const emit = defineEmits(["add-activity"]);
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >Activity Date</label
           >
-          <input
-            id="activityDate"
-            v-model="activity.activityDate"
-            type="text"
-            name="activityDate"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-4/12 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-            required=""
-          />
+          <div class="w-4/12">
+            <VueTailwindDatePicker
+              v-model="activity.activityDate"
+              as-single
+              :formatter="formatter"
+            />
+          </div>
         </div>
 
         <!-- activityType -->
@@ -62,14 +71,33 @@ const emit = defineEmits(["add-activity"]);
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >Activity Type</label
           >
-          <input
+          <select
             id="activityType"
             v-model="activity.activityType"
-            type="text"
             name="activityType"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-4/12 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-            required=""
-          />
+          >
+            <option value="yoga">Yoga</option>
+            <option value="running">Running</option>
+            <option value="swimming">Swimming</option>
+            <option value="bicycling">Bicycling</option>
+            <option value="walking">Walking</option>
+            <option value="dance">Dance</option>
+            <option value="tennis">Tennis</option>
+            <option value="hiking">Hiking</option>
+            <option value="weightlifting">Weightlifting</option>
+            <option value="jogging">Jogging</option>
+            <option value="gardening">Gardening</option>
+            <option value="inline skating">Inline skating</option>
+            <option value="gymnastics">Gymnastics</option>
+            <option value="bymnastics">Bymnastics</option>
+            <option value="water aerobics">Water aerobics</option>
+            <option value="strength training">Strength training</option>
+            <option value="pilates">Pilates</option>
+            <option value="aerobic exercise">Aerobic exercise</option>
+            <option value="other">Other</option>
+            <option value="default">Default</option>
+          </select>
         </div>
 
         <!-- workoutIntensity -->
@@ -79,14 +107,23 @@ const emit = defineEmits(["add-activity"]);
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >Workout Intensity</label
           >
-          <input
-            id="workoutIntensity"
+          <select
+            id="activityType"
             v-model="activity.workoutIntensity"
-            type="text"
-            name="workoutIntensity"
+            name="activityType"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-4/12 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-            required=""
-          />
+          >
+            <option value="low">Low</option>
+            <option value="light">Light</option>
+            <option value="moderate">Moderate</option>
+            <option value="low-to-moderate">Low to Moderate</option>
+            <option value="moderate-intensity">Moderate Intensity</option>
+            <option value="high">High</option>
+            <option value="high-intensity">High Intensity</option>
+            <option value="very high">Very High</option>
+            <option value="extreme">Extreme</option>
+            <option value="Varied">Varied</option>
+          </select>
         </div>
 
         <!-- distanceKm -->
@@ -99,10 +136,10 @@ const emit = defineEmits(["add-activity"]);
           <input
             id="distanceKm"
             v-model="activity.distanceKm"
-            type="text"
-            name="distanceKm"
+            type="number"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-4/12 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-            required=""
+            placeholder="0"
+            name="distanceKm"
           />
         </div>
 
@@ -116,10 +153,10 @@ const emit = defineEmits(["add-activity"]);
           <input
             id="durationMinutes"
             v-model="activity.durationMinutes"
-            type="text"
-            name="durationMinutes"
+            type="number"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-4/12 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-            required=""
+            placeholder="0"
+            name="durationMinutes"
           />
         </div>
       </div>
