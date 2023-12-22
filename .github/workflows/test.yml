@@ -1,0 +1,25 @@
+name: Build + Test Vue.js App
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-test-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+        
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        
+      - name: Setup CI environment
+        run: make build-ci-env
+        
+      - name: Start CI environment
+        run: make start-ci-env
+        
+      - name: Start tests
+        run: make start-ci-test
+        
+      - name: Deploy
+        run: echo "add deployment steps from now on. Remaining steps will be running after the previous steps have passed."
