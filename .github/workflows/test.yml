@@ -6,11 +6,11 @@ jobs:
   build-and-test-frontend:
     runs-on: ubuntu-latest
     steps:
-      - name: Install firefox
-        uses: browser-actions/setup-firefox@v1
-      
+      - name: Install chrome
+        uses: browser-actions/setup-chrome@latest
+            
       - name: Check firefox version
-        run: firefox --version
+        run: chrome --version
 
       - name: Checkout the code
         uses: actions/checkout@v3
