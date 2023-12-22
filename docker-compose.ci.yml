@@ -1,0 +1,15 @@
+version: '3.9'
+
+services: 
+  frontend:
+    build:
+      context: .
+      dockerfile: .docker/frontend/Dockerfile.dev
+    ports:
+      - '3000:5173'
+
+  selenium-container:
+    image: wazby/nubadoo:selenium-container
+
+  mockoon-container:
+   image: wazby/nubadoo:mockoon-container
