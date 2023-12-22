@@ -29,7 +29,7 @@ const emit = defineEmits(["add-food-item"]);
             >Food Name</label
           >
           <input
-            id="userId"
+            id="name"
             v-model="foodItem.name"
             type="text"
             name="name"
