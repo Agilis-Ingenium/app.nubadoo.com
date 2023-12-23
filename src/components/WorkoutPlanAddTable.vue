@@ -182,9 +182,9 @@ const formatter = ref({
         class="mx-3"
         @click="$emit('add-workout-plan', workoutPlan)"
       />
-      <a :href="'/workout-plans/list'">
+      <router-link to="/workout-plans/list">
         <WidgetCancelButton />
-      </a>
+      </router-link>
     </div>
   </div>
 </template>

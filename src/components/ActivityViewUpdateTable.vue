@@ -133,9 +133,9 @@ const emit = defineEmits(["delete-activity", "update-activity"]);
         class="mx-3"
         @click="$emit('update-activity', activity)"
       />
-      <a :href="'/activities/list'">
+      <router-link to="/activities/list">
         <WidgetBackButton />
-      </a>
+      </router-link>
     </div>
   </div>
 </template>

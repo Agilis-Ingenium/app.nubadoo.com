@@ -72,9 +72,9 @@ const emit = defineEmits(["delete-food-item"]);
         -->
           <td class="px-6 py-4">
             <div class="flex items-center">
-              <a :href="'/food-items/view/' + foodItem.foodItemId">
+              <router-link :to="'/food-items/view/' + foodItem.foodItemId">
                 <WidgetViewButton />
-              </a>
+              </router-link>
               <div class="ms-3">
                 <WidgetDeleteButton
                   @click="$emit('delete-food-item', foodItem.foodItemId, index)"

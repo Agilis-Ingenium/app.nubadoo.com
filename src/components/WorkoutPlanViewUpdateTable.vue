@@ -167,9 +167,9 @@ const emit = defineEmits(["delete-workout-plan", "update-workout-plan"]);
         class="mx-3"
         @click="$emit('update-workout-plan', workoutPlan)"
       />
-      <a :href="'/workout-plans'">
+      <router-link to="/workout-plans">
         <WidgetBackButton />
-      </a>
+      </router-link>
     </div>
   </div>
 </template>

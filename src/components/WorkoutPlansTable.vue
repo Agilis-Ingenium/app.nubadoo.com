@@ -28,7 +28,7 @@ const emit = defineEmits(["delete-workout-plan"]);
       <h2
         class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
       >
-        <a href="#">{{ plan.planName }}</a>
+        {{ plan.planName }}
       </h2>
       <p class="mb-5 font-light text-gray-500 dark:text-gray-400">
         {{ plan.description }}
@@ -41,9 +41,9 @@ const emit = defineEmits(["delete-workout-plan"]);
           />
         </div>
         <div class="content-end">
-          <a class="mr-3" :href="'/workout-plans/view/' + plan.planId">
+          <router-link class="mr-3" :to="'/workout-plans/view/' + plan.planId">
             <WidgetViewButton />
-          </a>
+          </router-link>
           <WidgetDeleteButton
             @click="$emit('delete-workout-plan', plan.planId, index)"
           />

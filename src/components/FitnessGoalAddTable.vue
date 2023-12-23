@@ -130,9 +130,9 @@ const formatter = ref({
         class="mx-3"
         @click="$emit('add-fitness-goal', fitnessGoal)"
       />
-      <a :href="'/fitness-goals'">
+      <router-link to="/fitness-goals">
         <WidgetCancelButton />
-      </a>
+      </router-link>
     </div>
   </div>
 </template>

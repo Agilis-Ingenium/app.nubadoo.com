@@ -77,7 +77,7 @@ export default {
   <PageHeader :page="page" />
 
   <div class="flex md:flex md:flex-grow flex-row justify-end space-x-1">
-    <a href="/fitness-goals/add"><WidgetAddButton /></a>
+    <router-link to="/fitness-goals/add"><WidgetAddButton /></router-link>
   </div>
 
   <FitnessGoalGrid

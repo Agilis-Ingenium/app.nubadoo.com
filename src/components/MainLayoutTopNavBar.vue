@@ -39,7 +39,7 @@
           <span class="sr-only">Toggle sidebar</span>
         </button>
         <a
-          href="https://flowbite.com"
+          href="https://app.nubadoo.com"
           class="flex items-center justify-between mr-4"
         >
           <svg

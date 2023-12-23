@@ -165,9 +165,9 @@ const formatter = ref({
       class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"
     >
       <WidgetSaveButton class="mx-3" @click="$emit('add-activity', activity)" />
-      <a :href="'/activities/list'">
+      <router-link to="/activities/list">
         <WidgetCancelButton />
-      </a>
+      </router-link>
     </div>
   </div>
 </template>

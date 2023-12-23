@@ -50,9 +50,9 @@ const emit = defineEmits(["delete-fitness-goal"]);
           ><br />Well Done!</span
         >
         <div v-if="!goal.achieved" class="flex mt-4 md:mt-6">
-          <a class="pr-3" :href="'/fitness-goals/view/' + goal.goalId">
+          <router-link class="pr-3" :to="'/fitness-goals/view/' + goal.goalId">
             <WidgetViewButton />
-          </a>
+          </router-link>
           <WidgetDeleteButton
             @click="$emit('delete-fitness-goal', goal.goalId, index)"
           />

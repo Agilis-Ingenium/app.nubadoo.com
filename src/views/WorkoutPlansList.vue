@@ -77,7 +77,7 @@ export default {
   <PageHeader :page="page" />
 
   <div class="flex md:flex md:flex-grow flex-row justify-end space-x-1">
-    <a href="/workout-plans/add"><WidgetAddButton /></a>
+    <router-link to="/workout-plans/add"><WidgetAddButton /></router-link>
   </div>
 
   <WorkoutPlansTable

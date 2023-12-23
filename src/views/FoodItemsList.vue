@@ -77,7 +77,7 @@ export default {
   <PageHeader :page="page" />
 
   <div class="flex md:flex md:flex-grow flex-row justify-end space-x-1">
-    <a href="/food-items/add"><WidgetAddButton /></a>
+    <router-link to="/food-items/add"><WidgetAddButton /></router-link>
   </div>
 
   <FoodItemsTable

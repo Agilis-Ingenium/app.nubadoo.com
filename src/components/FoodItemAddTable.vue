@@ -154,9 +154,9 @@ const emit = defineEmits(["add-food-item"]);
         class="mx-3"
         @click="$emit('add-food-item', foodItem)"
       />
-      <a :href="'/food-items/list'">
+      <router-link to="/food-items">
         <WidgetCancelButton />
-      </a>
+      </router-link>
     </div>
   </div>
 </template>

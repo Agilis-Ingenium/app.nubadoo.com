@@ -65,9 +65,9 @@ const emit = defineEmits(["delete-activity"]);
             {{ activity.workoutIntensity }}
           </td>
           <td class="px-6 py-4">
-            <a :href="'/activities/view/' + activity.activityId">
+            <router-link :to="'/activities/view/' + activity.activityId">
               <WidgetViewButton />
-            </a>
+            </router-link>
           </td>
           <td class="px-6 py-4">
             <WidgetDeleteButton

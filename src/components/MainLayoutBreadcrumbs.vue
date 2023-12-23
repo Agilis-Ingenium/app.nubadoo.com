@@ -18,8 +18,8 @@ defineProps({
         class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse"
       >
         <li class="inline-flex items-center">
-          <a
-            href="/"
+          <router-link
+            to="/"
             class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
           >
             <svg
@@ -34,7 +34,7 @@ defineProps({
               />
             </svg>
             Home
-          </a>
+          </router-link>
         </li>
         <li>
           <div class="flex items-center">
@@ -53,10 +53,10 @@ defineProps({
                 d="m1 9 4-4-4-4"
               />
             </svg>
-            <a
-              :href="'/' + breadcrumbs[0].replace(/\s+/g, '-').toLowerCase()"
+            <router-link
+              :to="'/' + breadcrumbs[0].replace(/\s+/g, '-').toLowerCase()"
               class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white"
-              >{{ breadcrumbs[0] }}</a
+              >{{ breadcrumbs[0] }}</router-link
             >
           </div>
         </li>
