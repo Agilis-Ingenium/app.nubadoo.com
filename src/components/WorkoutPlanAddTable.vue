@@ -1,9 +1,9 @@
 <script setup>
 import WidgetSaveButton from "../components/WidgetSaveButton.vue";
 import WidgetCancelButton from "../components/WidgetCancelButton.vue";
-import { ref } from 'vue'
-import { VMarkdownEditor } from 'vue3-markdown'
-import 'vue3-markdown/dist/style.css'
+import { ref } from "vue";
+import { VMarkdownEditor } from "vue3-markdown";
+import "vue3-markdown/dist/style.css";
 import VueTailwindDatePicker from "vue-tailwind-datepicker";
 
 const props = defineProps({
@@ -12,7 +12,7 @@ const props = defineProps({
 
 const emit = defineEmits(["add-workout-plan"]);
 
-const content = ref('')
+const content = ref("");
 
 const formatter = ref({
   date: "YYYY-MM-DD",
@@ -122,7 +122,9 @@ const formatter = ref({
           >
             <option value="Weight Loss">Weight Loss</option>
             <option value="Cardiovascular Health">Cardiovascular Health</option>
-            <option value="Flexibility Improvement">Flexibility Improvement</option>
+            <option value="Flexibility Improvement">
+              Flexibility Improvement
+            </option>
             <option value="Life Achievement">Life Achievement</option>
           </select>
         </div>
@@ -169,10 +171,7 @@ const formatter = ref({
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >Content</label
           >
-           <VMarkdownEditor
-            v-model="workoutPlan.content"
-            locale="en"
-            />
+          <VMarkdownEditor v-model="workoutPlan.content" locale="en" />
         </div>
       </div>
     </form>

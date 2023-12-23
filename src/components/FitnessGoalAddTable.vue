@@ -28,7 +28,6 @@ const formatter = ref({
 
     <form class="p-4 md:p-5">
       <div class="grid gap-4 mb-4 grid-cols-2">
-
         <!-- userId -->
         <!---TO DO: Should be post header with auth.-->
         <div class="col-span-2">
@@ -77,7 +76,7 @@ const formatter = ref({
             for="targetValue"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >Target Value</label
-          >       
+          >
           <input
             id="targetValue"
             v-model="fitnessGoal.targetValue"
@@ -86,7 +85,6 @@ const formatter = ref({
             placeholder="0"
             name="targetValue"
           />
-
         </div>
 
         <!-- targetDate -->
