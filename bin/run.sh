@@ -1,2 +1,2 @@
 #!bin/bash
-npm run dev -- --host
+npx vite dev --host --mode=staging

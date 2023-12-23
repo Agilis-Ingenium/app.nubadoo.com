@@ -13,3 +13,5 @@ services:
 
   mockoon-container:
     image: wazby/nubadoo:mockoon-container
+    ports: 
+      - "80:7060"
