@@ -32,7 +32,7 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
         server: {
     proxy: {
       "/v1": {
-        target: "https://app.nubadoo.com/v1/",
+        target: "https://api.nubadoo.com/v1/",
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/v1/, ""),
