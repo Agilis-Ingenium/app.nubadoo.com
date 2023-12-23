@@ -4,11 +4,14 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 
-export default defineConfig({
-  server: {
+export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
+  if (command === 'serve') {
+    return {
+      
+        server: {
     proxy: {
       "/v1": {
-        target: import.meta.env.VITE_API_HOST,
+        target: "http://localhost:7060/v1/",
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/v1/, ""),
@@ -21,4 +24,29 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
-});
+
+    }
+  } else {
+    // command === 'build'
+    return {
+        server: {
+    proxy: {
+      "/v1": {
+        target: "https://app.nubadoo.com/v1/",
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/v1/, ""),
+      },
+    },
+  },
+  plugins: [vue(), vueJsx()],
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
+    }
+  }
+})
+
+
