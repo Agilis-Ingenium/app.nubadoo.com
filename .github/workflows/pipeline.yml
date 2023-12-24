@@ -35,9 +35,6 @@ jobs:
       - name: Start tests
         run: make start-ci-test
 
-      - name: Deploy
-        run: echo "add deployment steps from now on. Remaining steps will be running after the previous steps have passed."
-
   deploy:
     needs: build-and-test-frontend
     runs-on: ubuntu-latest
